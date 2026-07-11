@@ -1,0 +1,127 @@
+{
+  "sourceLanguage": "pt-BR",
+  "strings": {
+    "la.phase.focus": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco"
+          }
+        }
+      }
+    },
+    "la.phase.longBreak": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa longa"
+          }
+        }
+      }
+    },
+    "la.phase.shortBreak": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa curta"
+          }
+        }
+      }
+    },
+    "mascot.a11y.guarding": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, guardando o seu foco"
+          }
+        }
+      }
+    },
+    "mascot.a11y.happy": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, comemorando"
+          }
+        }
+      }
+    },
+    "mascot.a11y.idle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, relaxando"
+          }
+        }
+      }
+    },
+    "mascot.a11y.levelUp": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, subindo de nível"
+          }
+        }
+      }
+    },
+    "mascot.a11y.sad": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, triste"
+          }
+        }
+      }
+    },
+    "mascot.a11y.studying": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, estudando com você"
+          }
+        }
+      }
+    },
+    "mascot.a11y.worried": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sapo do EGO, preocupado com a sequência"
+          }
+        }
+      }
+    },
+    "streak.a11y %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sequência de %lld dias"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
