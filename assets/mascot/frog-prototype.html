@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EGO — Frog Mascot Prototype</title>
+<style>
+  :root{--text-primary:#1e241f;--text-secondary:#6a6f67;--bg-surface:#f6f7f4;--border:#e4e6df;}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#eef1ea;}
+  .ego-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--text-primary);padding:24px;}
+  .ego-stage{width:360px;max-width:100%;aspect-ratio:1/1;border-radius:20px;background:var(--bg-surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .ego-stage canvas{width:100%;height:100%;image-rendering:pixelated;}
+  .ego-controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .ego-btn{cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text-primary);font-size:13px;font-weight:600;padding:8px 14px;border-radius:11px;transition:all .15s ease;}
+  .ego-btn:hover{transform:translateY(-1px);}
+  .ego-btn.active{background:#3da35d;border-color:#256b3e;color:#fff;}
+  .ego-cap{font-size:12px;color:var(--text-secondary);text-align:center;max-width:340px;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="ego-wrap">
+  <div class="ego-stage"><canvas id="egoCanvas" width="360" height="360"></canvas></div>
+  <div class="ego-controls">
+    <button class="ego-btn active" data-s="idle">Parado</button>
+    <button class="ego-btn" data-s="hop">Pulando →</button>
+    <button class="ego-btn" data-s="sleep">Dormindo</button>
+    <button class="ego-btn" data-s="study">Estudando</button>
+    <button class="ego-btn" data-s="happy">Feliz ↑</button>
+    <button class="ego-btn" data-s="auto">Auto</button>
+  </div>
+  <div class="ego-cap" id="egoCap">Protótipo de animação do mascote do EGO — verde-oliva, perfil, chapéu de explorador. Referência para o port SwiftUI.</div>
+</div>
+<script>
+(function(){
+  const cv=document.getElementById('egoCanvas'), ctx=cv.getContext('2d');
+  const SCALE=5;
+  ctx.imageSmoothingEnabled=false;
+  const cap=document.getElementById('egoCap');
+  const C={out:'#183619',grn:'#6b8f3c',grL:'#88a94e',grD:'#49661f',bel:'#aec473',beD:'#93aa5c',
+           spot:'#3c5320',wht:'#f3f7e8',pup:'#152012',blu:'#e58a86',hat:'#7c4a26',hatD:'#573216',
+           hatL:'#9c6538',bk:'#b8463a',bkP:'#f2ead2',spk:'#f5a524',zc:'#8fb0c9'};
+  function R(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(x,y,w,h);}
+  function blob(x,y,w,h,c,r){r=r||2;R(x+r,y,w-2*r,h,c);R(x,y+r,w,h-2*r,c);R(x+1,y+1,w-2,h-2,c);}
+  function oblob(x,y,w,h,c,oc,r){blob(x-1,y-1,w+2,h+2,oc,(r||2)+1);blob(x,y,w,h,c,r);}
+  function drawZ(x,y,s,a){ctx.globalAlpha=a;R(x,y,s,1,C.zc);R(x,y+s-1,s,1,C.zc);for(let i=0;i<s;i++)R(x+s-1-i,y+i,1,1,C.zc);ctx.globalAlpha=1;}
+  function spark(x,y,c){R(x-2,y,5,1,c);R(x,y-2,1,5,c);R(x-1,y-1,3,3,c);}
+  function frog(p){
+    oblob(-15,-3,8,4,C.grD,C.out,2);
+    oblob(-16,-15,30,15,C.grn,C.out,7);
+    blob(-9,-9,25,8,C.bel,5); R(-9,-3,25,2,C.beD);
+    oblob(3,-17,15,12,C.grn,C.out,6); R(4,-16,13,1,C.grL);
+    R(-11,-12,3,2,C.spot);R(-6,-13,2,2,C.spot);R(-13,-8,2,2,C.spot);R(-8,-9,2,2,C.spot);
+    R(-16,-9,2,7,C.grD);
+    const my=-5+p.hb;
+    if(p.mouth==='open'){oblob(3,my-2,13,6,C.hatD,C.out,2);R(6,my+1,8,2,C.blu);}
+    else if(p.mouth==='sleep'){R(6,my,5,1,C.out);R(7,my+1,3,1,C.out);}
+    else {R(0,my,17,1,C.out);R(15,my-1,3,1,C.out);}
+    R(15,-13+p.hb,1,1,C.out);
+    const eY=-16+p.hb;
+    oblob(1,eY-1,5,5,C.wht,C.out,2);
+    if(p.eye==='open'){R(2+p.lx,eY+p.ly,2,2,C.pup);} else {R(1,eY+1,4,1,C.out);}
+    oblob(7,eY-3,8,8,C.wht,C.out,3);
+    if(p.eye==='open'){R(9+p.lx,eY-1+p.ly,3,3,C.pup);R(10,eY-2,1,1,C.wht);}
+    else if(p.eye==='happy'){R(8,eY+1,2,1,C.out);R(10,eY,2,1,C.out);R(12,eY+1,2,1,C.out);}
+    else {R(8,eY+1,6,1,C.out);}
+    if(p.blush){R(5,eY+5,3,2,C.blu);}
+    const fl=p.arm, fy=-3-fl*10, fx=6+fl*1;
+    oblob(fx,fy,10,4,C.grn,C.out,2);
+    R(fx+2,fy+3,1,1,C.grD);R(fx+5,fy+3,1,1,C.grD);R(fx+8,fy+3,1,1,C.grD);
+    if(p.book){const by=-8;oblob(0,by,17,9,C.bk,C.out,2);R(1,by+1,7,7,C.bkP);R(9,by+1,7,7,C.bkP);R(8,by,1,9,C.hatD);R(2,by+3,5,1,C.beD);R(2,by+5,4,1,C.beD);R(10,by+3,5,1,C.beD);R(10,by+5,4,1,C.beD);}
+    if(p.hat){const ty=-19+p.hb;
+      blob(-16,ty+1,30,4,C.hatD,3); blob(-16,ty,29,3,C.hat,3); R(-15,ty,27,1,C.hatL); R(-16,ty+3,10,1,C.hatD);
+      blob(-7,ty-9,16,10,C.hat,4); R(-7,ty-9,16,1,C.hatD); R(-6,ty-7,13,1,C.hatL);
+      R(-7,ty-11,3,2,C.hatD);R(-2,ty-12,3,3,C.hatD);R(3,ty-11,3,2,C.hatD);R(7,ty-10,2,2,C.hatD);R(0,ty-13,2,2,C.hatL);
+      R(-15,ty-1,26,1,C.hatD);}
+  }
+  let state='idle', t0=performance.now(), autoT=0, autoI=0;
+  const autoSeq=['idle','hop','study','sleep','happy'];
+  const caps={idle:'Parado — respiração sutil + piscar.',hop:'Pulando pra frente — squash/stretch, arco suave.',sleep:'Dormindo — olhos fechados e "z" subindo.',study:'Estudando — livro na frente, cabeça na leitura.',happy:'Feliz — pulos verticais, patinha pra cima, brilhos.'};
+  const zs=[]; let zTimer=0;
+  function blink(t,period){const ph=t%period;const d=0.13;if(ph>period-d)return Math.max(0,(period-ph)/d);return 1;}
+  function pose(state,t){
+    const P={arm:0,eye:'open',mouth:'smile',blush:true,hat:true,book:false,hb:0,lx:0,ly:0,jump:0,ox:0,sx:1,sy:1,alpha:1,sparks:false};
+    if(state==='idle'){const b=Math.sin(t*2.3);P.sy=1+b*0.035;P.sx=1-b*0.035;P.hb=b*0.5;P.eye=blink(t,3.1)<0.35?'blink':'open';P.ly=Math.sin(t*0.7)*0.6;P.lx=Math.cos(t*0.5)*0.6;}
+    else if(state==='hop'){const T=0.6,n=4,total=T*n,cycle=total+0.55,tt=t%cycle;
+      if(tt<total){const i=Math.floor(tt/T),p=(tt%T)/T;P.ox=(-13)+(i+(1-Math.cos(Math.min(p,1)*Math.PI))/2)*7.5;P.jump=Math.sin(p*Math.PI)*12;
+        if(p<0.18){const c=1-p/0.18;P.sy=1-0.22*c;P.sx=1+0.22*c;}else if(p>0.82){const c=(p-0.82)/0.18;P.sy=1-0.22*c;P.sx=1+0.22*c;}else{P.sy=1.12;P.sx=0.9;}
+        P.mouth=P.jump>6?'open':'smile';P.ly=P.jump>6?-0.6:0.4;}
+      else{const c=(tt-total)/0.55;P.ox=-13;P.alpha=c<0.5?1-c*1.6:(c-0.5)*2;if(P.alpha<0)P.alpha=0;P.eye=blink(t,2)<0.35?'blink':'open';}}
+    else if(state==='sleep'){const b=Math.sin(t*1.25);P.sy=1+b*0.05;P.sx=1-b*0.05;P.hb=b*0.7+0.4;P.eye='sleep';P.mouth='sleep';}
+    else if(state==='study'){P.book=true;P.arm=0;P.mouth='study';P.hb=Math.sin(t*2.6)*1.3+0.4;P.eye=blink(t,2.7)<0.3?'blink':'open';P.ly=1.4;P.lx=Math.sin(t*1.3)*1.0;P.sy=1+Math.sin(t*2.6)*0.02;}
+    else if(state==='happy'){const T=0.52,p=(t%T)/T;P.jump=Math.sin(p*Math.PI)*15;if(p<0.13||p>0.87){P.sy=0.82;P.sx=1.18;}else{P.sy=1.12;P.sx=0.9;}P.arm=1;P.eye=P.jump>3?'happy':'open';P.mouth='open';P.hb=-P.jump*0.15;P.sparks=P.jump>9;}
+    return P;
+  }
+  function draw(now){
+    const t=(now-t0)/1000; let st;
+    if(state==='auto'){autoT+=1/60;if(autoT>4.2){autoT=0;autoI=(autoI+1)%autoSeq.length;}st=autoSeq[autoI];}else st=state;
+    const p=pose(st,t);
+    ctx.clearRect(0,0,cv.width,cv.height); ctx.save();ctx.scale(SCALE,SCALE);
+    const cx=36+p.ox, GY=54;
+    ctx.globalAlpha=(0.22*(1-p.jump/18))*p.alpha; const sw=24*(1-p.jump/40);R(cx-sw/2+2,GY-1,sw,3,'#183619');ctx.globalAlpha=1;
+    if(st==='sleep'){zTimer+=1/60;if(zTimer>0.75){zTimer=0;zs.push({x:cx+11,y:GY-20,s:3,life:0});}}
+    for(let i=zs.length-1;i>=0;i--){const z=zs[i];z.life+=1/60;z.y-=0.28;z.x+=0.14;z.s=3+z.life*1.4;const a=Math.max(0,1-z.life/2.6);if(a<=0||st!=='sleep'){zs.splice(i,1);continue;}drawZ(z.x,z.y,Math.round(z.s),a*0.9);}
+    ctx.globalAlpha=p.alpha; ctx.save();ctx.translate(cx,GY-p.jump);ctx.scale(p.sx,p.sy);frog(p);ctx.restore(); ctx.globalAlpha=1;
+    if(p.sparks){ctx.globalAlpha=0.9;spark(cx-14,GY-30-p.jump*0.2,C.spk);spark(cx+16,GY-26,C.spk);spark(cx+3,GY-46,'#fff');ctx.globalAlpha=1;}
+    ctx.restore(); requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+  document.querySelectorAll('.ego-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.ego-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');state=b.dataset.s;t0=performance.now();autoT=0;autoI=0;zs.length=0;cap.textContent=state==='auto'?'Auto — passa por todas as animações.':caps[state];});});
+})();
+</script>
+</body>
+</html>

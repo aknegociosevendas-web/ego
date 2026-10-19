@@ -1,11 +1,5 @@
-# Xcode user state
-xcuserdata/
-*.xcuserstate
-
-# Build artifacts
-DerivedData/
-build/
-*.xcresult
-
 # macOS
 .DS_Store
+
+# Local Claude Code settings (machine-specific permissions)
+.claude/settings.local.json
