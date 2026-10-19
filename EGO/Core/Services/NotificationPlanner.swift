@@ -9,10 +9,12 @@ nonisolated struct PlannedNotification: Equatable, Sendable {
     var dateComponents = DateComponents()
     var repeats = false
     var afterInterval: TimeInterval?
+    /// Carried into UNNotificationContent.userInfo (deep link: phraseId/category).
+    var userInfo: [String: String] = [:]
 }
 
-/// Pure scheduling math for the three F-03 triggers. No UNUserNotificationCenter,
-/// no models — fully unit-testable.
+/// Pure scheduling math for the session reminder (F-09). Streak-risk and
+/// comeback planning moved to `MotivationalNotificationPlanner` (slice 7).
 nonisolated enum NotificationPlanner {
     /// Moves a fire time out of the quiet window to its end (docs F-09).
     static func shiftedOutOfQuietHours(
@@ -42,75 +44,6 @@ nonisolated enum NotificationPlanner {
             body: body,
             dateComponents: components,
             repeats: true
-        )
-    }
-
-    /// One-shot "streak at risk" for today at `riskHour`. Only planned while
-    /// it can still help: streak alive (yesterday qualified), today not
-    /// qualified yet, and the risk hour hasn't passed.
-    static func streakRisk(
-        streakCurrent: Int,
-        lastQualifiedDay: Date?,
-        now: Date,
-        calendar: Calendar,
-        riskHour: Int,
-        title: String,
-        body: String
-    ) -> PlannedNotification? {
-        guard streakCurrent > 0, let last = lastQualifiedDay else { return nil }
-        guard let yesterday = calendar.date(
-            byAdding: .day,
-            value: -1,
-            to: calendar.startOfDay(for: now)
-        ) else { return nil }
-        guard calendar.isDate(last, inSameDayAs: yesterday) else { return nil }
-        guard calendar.component(.hour, from: now) < riskHour else { return nil }
-
-        var components = calendar.dateComponents([.year, .month, .day], from: now)
-        components.hour = riskHour
-        components.minute = 0
-        return PlannedNotification(
-            identifier: NotificationConfig.Identifier.streakRisk,
-            title: title,
-            body: body,
-            dateComponents: components,
-            repeats: false
-        )
-    }
-
-    /// One-shot comeback nudge `comebackAfterDays` after the last activity.
-    static func comeback(
-        lastActiveDay: Date?,
-        now: Date,
-        calendar: Calendar,
-        title: String,
-        body: String,
-        config: NotificationConfig
-    ) -> PlannedNotification? {
-        guard let lastActiveDay else { return nil }
-        let time = shiftedOutOfQuietHours(
-            hour: config.defaultReminderHour, minute: 0, config: config
-        )
-        guard
-            let targetDay = calendar.date(
-                byAdding: .day,
-                value: config.comebackAfterDays,
-                to: calendar.startOfDay(for: lastActiveDay)
-            ),
-            let fireDate = calendar.date(
-                bySettingHour: time.hour, minute: time.minute, second: 0, of: targetDay
-            ),
-            fireDate > now
-        else { return nil }
-
-        return PlannedNotification(
-            identifier: NotificationConfig.Identifier.comeback,
-            title: title,
-            body: body,
-            dateComponents: calendar.dateComponents(
-                [.year, .month, .day, .hour, .minute], from: fireDate
-            ),
-            repeats: false
         )
     }
 

@@ -77,6 +77,57 @@ struct RoutineProgressTests {
         #expect(log.completedMinutes == 50)
     }
 
+    @Test func updateBlockPreservesIdentityAndHistory() throws {
+        let di = try makeContext()
+        let routine = try seedRoutine(di, minutes: 50)
+        let block = (routine.blocks ?? [])[0]
+        let originalID = block.id
+        let calendar = Calendar.current
+
+        // Yesterday's snapshot + today's partial progress.
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: .now)!
+        let pastLog = try di.routineLogRepository.createLog(for: block, on: yesterday)
+        let todayLog = try di.routineLogRepository.createLog(for: block, on: .now)
+        todayLog.completedMinutes = 25
+        try di.routineLogRepository.save()
+
+        try di.routineRepository.updateBlock(
+            block, weekday: block.weekday ?? 2, subject: "Física",
+            targetMinutes: 25, targetSessions: 1
+        )
+        try di.routineProgressService.syncTodayLog(for: block)
+
+        // Same row, history intact.
+        #expect(block.id == originalID)
+        #expect(block.logs?.count == 2)
+
+        // Today resyncs (25/25 → completed); yesterday keeps its snapshot.
+        #expect(todayLog.plannedMinutes == 25)
+        #expect(todayLog.subject == "Física")
+        #expect(todayLog.completed)
+        #expect(pastLog.plannedMinutes == 50)
+        #expect(pastLog.subject == "Matemática")
+    }
+
+    @Test func raisingTargetReopensTodayLog() throws {
+        let di = try makeContext()
+        let routine = try seedRoutine(di, minutes: 25)
+        let block = (routine.blocks ?? [])[0]
+
+        // Check-off completes today's log at 25 min.
+        let log = try di.routineProgressService.checkOff(block)
+        #expect(log.completed)
+
+        try di.routineRepository.updateBlock(
+            block, weekday: block.weekday ?? 2, subject: "Matemática",
+            targetMinutes: 60, targetSessions: 2
+        )
+        try di.routineProgressService.syncTodayLog(for: block)
+
+        #expect(log.plannedMinutes == 60)
+        #expect(!log.completed)
+    }
+
     @Test func pruneDropsRowsOlderThanSixMonths() throws {
         let di = try makeContext()
         let routine = try seedRoutine(di)

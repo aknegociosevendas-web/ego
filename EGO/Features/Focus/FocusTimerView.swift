@@ -1,32 +1,53 @@
 import SwiftUI
+import os
 
-/// F-01 timer screen: ring, controls, subject/preset pickers, and the mascot
-/// studying alongside. Dumb view — all state lives in `PomodoroViewModel`.
+/// Diagnostic trail for the finish-early flow (slice 6). Remove after the
+/// user confirms the fix with a real touch. // LOG(slice6)
+private let focusFlowLog = Logger(subsystem: "com.ego.EGO", category: "FocusFlow") // LOG(slice6)
+
+/// Step 2 of the focus flow (F-01): the running timer over the chosen scenery.
+/// Configuration moved to `FocusSetupView`; this screen keeps ring + controls
+/// and adds a hold-to-finish button. Dumb view — session state lives in
+/// `PomodoroViewModel`; the summary step is presented by `FocusFlowView`.
 struct FocusTimerView: View {
     @Bindable var viewModel: PomodoroViewModel
+    var scenery: FocusScenery = .night
+    /// Hold "Concluir": ends the focus now via the existing abandon path
+    /// (no rewards) and moves the flow to the summary step.
+    var onFinishEarly: () -> Void = {}
+
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
+    @State private var showingFinishDialog = false
 
     var body: some View {
-        VStack(spacing: DS.Spacing.lg) {
-            header
-            Spacer()
-            timerRing
-            MascotView(state: viewModel.timerMascotState)
-                .frame(width: 130, height: 130)
-            Spacer()
-            if viewModel.timerState == .idle {
-                pickers
+        ZStack {
+            AnimatedSceneView(scenery: scenery, animating: viewModel.timerState == .running)
+                .ignoresSafeArea()
+
+            VStack(spacing: DS.Spacing.md) {
+                header
+                Spacer().frame(height: DS.Spacing.md)
+                timerBlock
+                Spacer()
+                controls
             }
-            controls
+            .padding(.horizontal, DS.Spacing.screenPadding)
+            .padding(.vertical, DS.Spacing.lg)
         }
-        .padding(.horizontal, DS.Spacing.screenPadding)
-        .padding(.vertical, DS.Spacing.lg)
-        .background(DS.Colors.bgCanvas)
-        .sheet(item: $viewModel.sessionSummary) { summary in
-            SessionSummaryView(summary: summary)
-                .presentationDetents([.medium])
-                .presentationCornerRadius(DS.Radius.sheet)
+        .confirmationDialog(
+            "timer.finish.title",
+            isPresented: $showingFinishDialog,
+            titleVisibility: .visible
+        ) {
+            Button("timer.finish.confirm", role: .destructive) {
+                focusFlowLog.debug("2/6 finish confirmed in dialog → onFinishEarly") // LOG(slice6)
+                onFinishEarly()
+            }
+            .accessibilityIdentifier("finish.confirm")
+            Button("timer.finish.cancel", role: .cancel) {}
+        } message: {
+            Text("timer.finish.message")
         }
         .onChange(of: scenePhase) { _, phase in
             switch phase {
@@ -38,90 +59,75 @@ struct FocusTimerView: View {
     }
 
     private var header: some View {
-        ZStack {
+        HStack {
+            if canFinishEarly {
+                finishEarlyButton
+            }
+            Spacer()
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(DS.Typography.callout)
+                    .foregroundStyle(DS.Colors.textPrimary)
+                    .frame(width: 40, height: 40)
+                    .background(.ultraThinMaterial, in: Circle())
+                    .overlay(Circle().strokeBorder(DS.Colors.borderSubtle, lineWidth: 1))
+            }
+            .accessibilityLabel(Text("timer.close"))
+        }
+    }
+
+    // MARK: - Finish early (tap + native confirmation, slice 6)
+
+    private var canFinishEarly: Bool {
+        viewModel.phase == .focus && viewModel.timerState != .idle
+    }
+
+    private var finishEarlyButton: some View {
+        Button {
+            focusFlowLog.debug("1/6 Concluir tapped — showing confirmation dialog") // LOG(slice6)
+            showingFinishDialog = true
+        } label: {
+            Text("timer.finishEarly")
+                .font(DS.Typography.callout)
+                .foregroundStyle(DS.Colors.textPrimary)
+                .padding(.horizontal, DS.Spacing.md)
+                .frame(minHeight: 44)
+                .background(.ultraThinMaterial, in: Capsule())
+                .overlay(Capsule().strokeBorder(DS.Colors.borderSubtle, lineWidth: 1))
+        }
+        .accessibilityLabel(Text("timer.finishEarly"))
+    }
+
+    /// Phase label + big countdown with a slim progress ring, legible over the
+    /// scene (dark shadow halo keeps contrast on brighter parts).
+    private var timerBlock: some View {
+        VStack(spacing: DS.Spacing.sm) {
             Text(phaseTitleKey)
                 .font(DS.Typography.headline)
                 .foregroundStyle(DS.Colors.textPrimary)
-            HStack {
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(DS.Typography.callout)
-                        .foregroundStyle(DS.Colors.textSecondary)
-                }
-                .accessibilityLabel(Text("timer.close"))
-            }
-        }
-    }
+                .shadow(color: DS.Colors.bgCanvas.opacity(0.8), radius: 6)
 
-    private var timerRing: some View {
-        ZStack {
-            ProgressRing(
-                progress: viewModel.progress,
-                tint: viewModel.phase == .focus ? DS.Colors.brandGreen : DS.Colors.accentFocus,
-                lineWidth: 12
-            )
-            VStack(spacing: DS.Spacing.xxs) {
-                Text(verbatim: viewModel.timeText)
-                    .font(DS.Typography.display)
-                    .foregroundStyle(DS.Colors.textPrimary)
-                    .monospacedDigit()
-                Text("timer.cycle \(viewModel.currentCycle) \(viewModel.configuration.cyclesBeforeLongBreak)")
-                    .font(DS.Typography.caption)
-                    .foregroundStyle(DS.Colors.textSecondary)
-            }
-        }
-        .frame(width: 230, height: 230)
-    }
-
-    private var pickers: some View {
-        HStack(spacing: DS.Spacing.sm) {
-            Menu {
-                Button {
-                    viewModel.selectedSubject = nil
-                } label: {
-                    Text("timer.subject.none")
-                }
-                ForEach(SubjectCatalog.presets, id: \.self) { subject in
-                    Button {
-                        viewModel.selectedSubject = subject
-                    } label: {
-                        Text(verbatim: subject)
-                    }
-                }
-            } label: {
-                chipLabel(
-                    icon: "book.closed",
-                    text: viewModel.selectedSubject.map(Text.init(verbatim:)) ?? Text("timer.subject.none")
+            ZStack {
+                ProgressRing(
+                    progress: viewModel.progress,
+                    tint: viewModel.phase == .focus ? DS.Colors.brandGreen : DS.Colors.accentFocus,
+                    lineWidth: 5
                 )
-            }
-
-            Menu {
-                ForEach(PomodoroPreset.allCases) { preset in
-                    Button {
-                        viewModel.configuration = preset.configuration
-                    } label: {
-                        Text(titleKey(for: preset))
-                    }
+                VStack(spacing: DS.Spacing.xxs) {
+                    Text(verbatim: viewModel.timeText)
+                        .font(DS.Typography.display)
+                        .foregroundStyle(DS.Colors.textPrimary)
+                        .monospacedDigit()
+                        .shadow(color: DS.Colors.bgCanvas.opacity(0.85), radius: 8)
+                    Text("timer.cycle \(viewModel.currentCycle) \(viewModel.configuration.cyclesBeforeLongBreak)")
+                        .font(DS.Typography.caption)
+                        .foregroundStyle(DS.Colors.textPrimary)
+                        .shadow(color: DS.Colors.bgCanvas.opacity(0.8), radius: 5)
                 }
-            } label: {
-                chipLabel(icon: "timer", text: Text(titleKey(for: currentPreset)))
             }
-
-            Button {
-                viewModel.softFocusEnabled.toggle()
-            } label: {
-                chipLabel(
-                    icon: viewModel.softFocusEnabled ? "shield.fill" : "shield.slash",
-                    text: Text("timer.softFocus")
-                )
-                .foregroundStyle(
-                    viewModel.softFocusEnabled ? DS.Colors.accentFocus : DS.Colors.textSecondary
-                )
-            }
-            .accessibilityHint(Text("timer.softFocus.hint"))
+            .frame(width: 190, height: 190)
         }
     }
 
@@ -186,40 +192,13 @@ struct FocusTimerView: View {
         }
     }
 
-    private var currentPreset: PomodoroPreset {
-        PomodoroPreset.allCases.first { $0.configuration == viewModel.configuration } ?? .standard
-    }
-
-    private func titleKey(for preset: PomodoroPreset) -> LocalizedStringKey {
-        switch preset {
-        case .standard: "timer.preset.standard"
-        case .enem: "timer.preset.enem"
-        case .deep: "timer.preset.deep"
-        }
-    }
-
     private func controlIcon(_ systemName: String) -> some View {
         Image(systemName: systemName)
             .font(DS.Typography.headline)
             .foregroundStyle(DS.Colors.textPrimary)
             .frame(width: 52, height: 52)
-            .background(DS.Colors.bgSurface)
-            .clipShape(Circle())
+            .background(.ultraThinMaterial, in: Circle())
             .overlay(Circle().strokeBorder(DS.Colors.borderSubtle, lineWidth: 1))
-    }
-
-    private func chipLabel(icon: String, text: Text) -> some View {
-        HStack(spacing: DS.Spacing.xxs) {
-            Image(systemName: icon)
-                .font(DS.Typography.caption)
-            text
-                .font(DS.Typography.callout)
-        }
-        .foregroundStyle(DS.Colors.textPrimary)
-        .padding(.horizontal, DS.Spacing.sm)
-        .padding(.vertical, DS.Spacing.xs)
-        .background(DS.Colors.bgSurfaceAlt)
-        .clipShape(Capsule())
     }
 }
 

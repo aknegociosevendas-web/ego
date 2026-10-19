@@ -21,11 +21,20 @@ final class PomodoroViewModel {
         case idle, running, paused
     }
 
+    /// Active goal available for explicit attach (F-01).
+    struct GoalOption: Identifiable, Equatable {
+        let id: UUID
+        let title: String
+        let subject: String
+    }
+
     var configuration: PomodoroConfiguration = .standard
     var selectedSubject: String?
     /// Soft-focus honor mode (docs/06 §7): leaving the app mid-focus beyond
     /// the grace window abandons the session.
     var softFocusEnabled = true
+    private(set) var availableGoals: [GoalOption] = []
+    private(set) var selectedGoalID: UUID?
 
     private(set) var phase: Phase = .focus
     private(set) var timerState: TimerState = .idle
@@ -44,6 +53,7 @@ final class PomodoroViewModel {
     private let completionService: SessionCompletionService
     private let mascotEvents: MascotEventCenter
     private let streakRepository: StreakRepository
+    private let goalRepository: TopicGoalRepository
     private let activityController: FocusActivityManaging
     private let notificationService: NotificationService
     private let config: GamificationConfig
@@ -52,6 +62,7 @@ final class PomodoroViewModel {
         completionService: SessionCompletionService,
         mascotEvents: MascotEventCenter,
         streakRepository: StreakRepository,
+        goalRepository: TopicGoalRepository,
         activityController: FocusActivityManaging,
         notificationService: NotificationService,
         config: GamificationConfig = .standard
@@ -59,9 +70,43 @@ final class PomodoroViewModel {
         self.completionService = completionService
         self.mascotEvents = mascotEvents
         self.streakRepository = streakRepository
+        self.goalRepository = goalRepository
         self.activityController = activityController
         self.notificationService = notificationService
         self.config = config
+    }
+
+    // MARK: - Goal attach (F-01)
+
+    var selectedGoal: GoalOption? {
+        availableGoals.first { $0.id == selectedGoalID }
+    }
+
+    /// Attached goal drives the subject; the subject picker locks meanwhile.
+    var isSubjectLockedByGoal: Bool { selectedGoalID != nil }
+
+    func refreshGoals() {
+        let goals = ((try? goalRepository.fetchAll()) ?? []).filter { !$0.completed }
+        availableGoals = goals.map { goal in
+            let subject = goal.subject ?? ""
+            let topic = goal.topic?.isEmpty == false ? goal.topic! : subject
+            return GoalOption(id: goal.id, title: topic, subject: subject)
+        }
+        if selectedGoalID != nil, selectedGoal == nil {
+            selectGoal(nil)
+        }
+    }
+
+    func selectGoal(_ id: UUID?) {
+        selectedGoalID = id
+        if let option = availableGoals.first(where: { $0.id == id }) {
+            selectedSubject = option.subject.isEmpty ? nil : option.subject
+        }
+    }
+
+    private func attachSelectedGoal(to session: FocusSession) {
+        guard let id = selectedGoalID else { return }
+        session.goal = try? goalRepository.fetch(id: id)
     }
 
     // MARK: - Derived state
@@ -214,6 +259,7 @@ final class PomodoroViewModel {
                 subject: selectedSubject
             )
             session.actualMinutes = elapsedMinutes
+            attachSelectedGoal(to: session)
             try? completionService.abandonSession(session)
         } else {
             mascotEvents.focusStopped()
@@ -262,6 +308,7 @@ final class PomodoroViewModel {
             subject: selectedSubject
         )
         session.actualMinutes = configuration.focusMinutes
+        attachSelectedGoal(to: session)
         if let result = try? completionService.completeSession(session) {
             sessionSummary = CompletedSessionSummary(
                 minutes: session.actualMinutes,
@@ -284,6 +331,7 @@ final class PomodoroViewModel {
                 subject: selectedSubject
             )
             session.actualMinutes = elapsedMinutes
+            attachSelectedGoal(to: session)
             try? completionService.abandonSession(session)
         } else {
             // Too short to count as a quit — no guilt, back to idle.

@@ -51,6 +51,21 @@ final class SwiftDataRoutineRepository: RoutineRepository {
         return block
     }
 
+    func updateBlock(
+        _ block: RoutineBlock,
+        weekday: Int,
+        subject: String,
+        targetMinutes: Int,
+        targetSessions: Int
+    ) throws {
+        block.weekday = weekday
+        block.subject = subject
+        block.targetMinutes = targetMinutes
+        block.targetSessions = targetSessions
+        block.updatedAt = .now
+        try context.save()
+    }
+
     func deleteBlock(_ block: RoutineBlock) throws {
         context.delete(block)
         try context.save()

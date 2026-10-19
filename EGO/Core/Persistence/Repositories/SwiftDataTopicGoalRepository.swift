@@ -14,8 +14,16 @@ final class SwiftDataTopicGoalRepository: TopicGoalRepository {
             .sorted { $0.createdAt > $1.createdAt }
     }
 
+    func fetch(id: UUID) throws -> TopicGoal? {
+        try fetchAll().first { $0.id == id }
+    }
+
     func activeGoals(subject: String) throws -> [TopicGoal] {
         try fetchAll().filter { !$0.completed && $0.subject == subject }
+    }
+
+    func activeEssayGoals() throws -> [TopicGoal] {
+        try fetchAll().filter { !$0.completed && ($0.targetEssays ?? 0) > 0 }
     }
 
     @discardableResult

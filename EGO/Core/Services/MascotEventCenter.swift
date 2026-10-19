@@ -52,6 +52,21 @@ final class MascotEventCenter {
         flash(.levelUp)
     }
 
+    /// 3+ correct answers in a row (F-07 hook).
+    func questionStreak() {
+        flash(.happy)
+    }
+
+    /// Essay finished (F-08 hook).
+    func essayFinished() {
+        flash(.happy)
+    }
+
+    /// Topic goal completed (F-10 hook).
+    func goalCompleted() {
+        flash(.happy)
+    }
+
     private func flash(_ newState: MascotState) {
         cancelRevert()
         state = newState

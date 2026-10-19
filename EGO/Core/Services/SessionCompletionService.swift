@@ -87,7 +87,7 @@ final class SessionCompletionService {
         }
 
         // Routine history + goal progress (F-06/F-10).
-        try? routineProgressService.recordSession(session, at: date)
+        _ = try? routineProgressService.recordSession(session, at: date)
         let goalOutcome = (try? goalProgressService.recordSession(session, at: date)) ?? .init()
 
         let profile = try userProfileRepository.fetchOrCreate()

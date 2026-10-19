@@ -9,6 +9,9 @@ protocol NotificationScheduling: AnyObject {
     func isAuthorized() async -> Bool
     func schedule(_ notification: PlannedNotification) async
     func cancel(identifiers: [String])
+    /// Delivery dates of already-shown notifications whose identifier starts
+    /// with `prefix` (anti-spam detection, slice 7).
+    func deliveredDates(identifierPrefix: String) async -> [Date]
 }
 
 @MainActor
@@ -32,6 +35,9 @@ final class UserNotificationScheduler: NotificationScheduling {
         content.title = notification.title
         content.body = notification.body
         content.sound = .default
+        if !notification.userInfo.isEmpty {
+            content.userInfo = notification.userInfo
+        }
         let trigger: UNNotificationTrigger = if let interval = notification.afterInterval {
             UNTimeIntervalNotificationTrigger(timeInterval: max(1, interval), repeats: false)
         } else {
@@ -50,5 +56,11 @@ final class UserNotificationScheduler: NotificationScheduling {
 
     func cancel(identifiers: [String]) {
         center.removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+
+    func deliveredDates(identifierPrefix: String) async -> [Date] {
+        await center.deliveredNotifications()
+            .filter { $0.request.identifier.hasPrefix(identifierPrefix) }
+            .map(\.date)
     }
 }

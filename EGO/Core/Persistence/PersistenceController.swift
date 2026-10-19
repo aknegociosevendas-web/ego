@@ -22,6 +22,12 @@ enum PersistenceController {
             RoutineBlock.self,
             RoutineLog.self,
             TopicGoal.self,
+            Question.self,
+            QuestionAttempt.self,
+            ReviewItem.self,
+            EssayTemplate.self,
+            EssayDraft.self,
+            EssayFlashcard.self,
         ])
     }
 
@@ -45,11 +51,16 @@ enum PersistenceController {
         }
     }
 
-    /// In-memory container for unit tests and previews.
+    /// In-memory container for unit tests and previews. Named per instance:
+    /// unnamed in-memory configurations share the /dev/null store identity,
+    /// so parallel test suites hammering the same entity trap inside
+    /// SwiftData (EXC_BREAKPOINT on fetch/save).
     static func makeInMemoryContainer() throws -> ModelContainer {
         let configuration = ModelConfiguration(
+            UUID().uuidString,
             schema: schema,
             isStoredInMemoryOnly: true,
+            allowsSave: true,
             cloudKitDatabase: .none
         )
         return try ModelContainer(for: schema, configurations: [configuration])

@@ -16,12 +16,20 @@ struct SoftFocusTests {
             templateRepository: di.notificationTemplateRepository,
             streakRepository: di.streakRepository,
             userStatsRepository: di.userStatsRepository,
-            userProfileRepository: di.userProfileRepository
+            userProfileRepository: di.userProfileRepository,
+            focusRepository: di.focusRepository,
+            phraseSelector: MotivationalPhraseSelector(
+                repository: di.notificationTemplateRepository
+            ),
+            settingsStore: NotificationSettingsStore(
+                defaults: UserDefaults(suiteName: "test.\(UUID().uuidString)")!
+            )
         )
         let viewModel = PomodoroViewModel(
             completionService: di.sessionCompletionService,
             mascotEvents: di.mascotEvents,
             streakRepository: di.streakRepository,
+            goalRepository: di.topicGoalRepository,
             activityController: SpyFocusActivityController(),
             notificationService: notifications
         )

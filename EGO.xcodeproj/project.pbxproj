@@ -60,15 +60,16 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/DesignSystem/Colors.swift,
+				Core/DesignSystem/Fonts.swift,
 				Core/DesignSystem/Spacing.swift,
 				Core/DesignSystem/Typography.swift,
 				Core/Services/FocusActivityAttributes.swift,
-				Features/Mascot/FrogPalette.swift,
-				Features/Mascot/FrogPose.swift,
-				Features/Mascot/FrogRenderer.swift,
-				Features/Mascot/MascotAnimator.swift,
+				Features/Mascot/MascotSprite.swift,
 				Features/Mascot/MascotState.swift,
 				Resources/Assets.xcassets,
+				"Resources/Fonts/Nunito-Bold.ttf",
+				"Resources/Fonts/Nunito-Regular.ttf",
+				"Resources/Fonts/Nunito-SemiBold.ttf",
 			);
 			target = AA0000000000000000000003 /* EGOWidgets */;
 		};

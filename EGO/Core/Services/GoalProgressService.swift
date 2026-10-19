@@ -17,13 +17,41 @@ final class GoalProgressService {
 
     @discardableResult
     func recordSession(_ session: FocusSession, at date: Date = .now) throws -> Outcome {
+        // Explicit attach (F-01) narrows attribution to that goal alone;
+        // subject inheritance is the fallback for unattached sessions.
+        if let goal = session.goal {
+            guard !goal.completed else { return Outcome() }
+            var outcome = Outcome()
+            accumulate(session, into: goal, at: date, outcome: &outcome)
+            try goalRepository.save()
+            return outcome
+        }
+
         guard let subject = session.subject, !subject.isEmpty else { return Outcome() }
         let goals = try goalRepository.activeGoals(subject: subject)
         guard !goals.isEmpty else { return Outcome() }
 
         var outcome = Outcome()
         for goal in goals {
-            goal.progressMinutes += session.actualMinutes
+            accumulate(session, into: goal, at: date, outcome: &outcome)
+        }
+        session.goal = goals.first
+        try goalRepository.save()
+        return outcome
+    }
+
+    /// Feeds question goals from a recorded attempt (F-10). Attributed by the
+    /// question's subject to active goals — one increment per attempt, matching
+    /// `UserStats.questionsSolved` (reviews count too, same as the stat).
+    @discardableResult
+    func recordQuestion(_ question: Question, at date: Date = .now) throws -> Outcome {
+        guard let subject = question.subject, !subject.isEmpty else { return Outcome() }
+        let goals = try goalRepository.activeGoals(subject: subject)
+        guard !goals.isEmpty else { return Outcome() }
+
+        var outcome = Outcome()
+        for goal in goals {
+            goal.progressQuestions += 1
             goal.updatedAt = date
             outcome.updatedGoals += 1
             if GoalLogic.isAchieved(goal) {
@@ -31,8 +59,43 @@ final class GoalProgressService {
                 outcome.newlyCompletedGoals += 1
             }
         }
-        session.goal = goals.first
         try goalRepository.save()
         return outcome
+    }
+
+    /// Feeds essay goals from a finished draft (F-10). Essays aren't
+    /// subject-scoped, so every active essay-target goal advances by one.
+    @discardableResult
+    func recordEssay(_ draft: EssayDraft, at date: Date = .now) throws -> Outcome {
+        let goals = try goalRepository.activeEssayGoals()
+        guard !goals.isEmpty else { return Outcome() }
+
+        var outcome = Outcome()
+        for goal in goals {
+            goal.progressEssays += 1
+            goal.updatedAt = date
+            outcome.updatedGoals += 1
+            if GoalLogic.isAchieved(goal) {
+                goal.completed = true
+                outcome.newlyCompletedGoals += 1
+            }
+        }
+        try goalRepository.save()
+        return outcome
+    }
+
+    private func accumulate(
+        _ session: FocusSession,
+        into goal: TopicGoal,
+        at date: Date,
+        outcome: inout Outcome
+    ) {
+        goal.progressMinutes += session.actualMinutes
+        goal.updatedAt = date
+        outcome.updatedGoals += 1
+        if GoalLogic.isAchieved(goal) {
+            goal.completed = true
+            outcome.newlyCompletedGoals += 1
+        }
     }
 }

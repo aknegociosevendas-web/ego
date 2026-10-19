@@ -1,19 +1,40 @@
 import SwiftUI
 
 /// F-05 block editor: weekday, subject, minutes, target sessions.
+/// Pass `initial` to edit an existing block in place.
 struct RoutineBlockEditorSheet: View {
+    struct Values: Equatable {
+        var weekday: Int
+        var subject: String
+        var minutes: Int
+        var sessions: Int
+    }
+
+    private let isEditing: Bool
     var onSave: (_ weekday: Int, _ subject: String, _ minutes: Int, _ sessions: Int) -> Void
     @Environment(\.dismiss) private var dismiss
     @Environment(\.calendar) private var calendar
 
-    @State private var weekday = 2
-    @State private var subject = SubjectCatalog.presets[0]
-    @State private var minutes = 50
-    @State private var sessions = 1
+    @State private var weekday: Int
+    @State private var subject: String
+    @State private var minutes: Int
+    @State private var sessions: Int
+
+    init(
+        initial: Values? = nil,
+        onSave: @escaping (_ weekday: Int, _ subject: String, _ minutes: Int, _ sessions: Int) -> Void
+    ) {
+        self.isEditing = initial != nil
+        self.onSave = onSave
+        _weekday = State(initialValue: initial?.weekday ?? 2)
+        _subject = State(initialValue: initial?.subject ?? SubjectCatalog.presets[0])
+        _minutes = State(initialValue: initial?.minutes ?? 50)
+        _sessions = State(initialValue: initial?.sessions ?? 1)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: DS.Spacing.md) {
-            Text("blockEditor.title")
+            Text(isEditing ? "blockEditor.editTitle" : "blockEditor.title")
                 .font(DS.Typography.title)
                 .foregroundStyle(DS.Colors.textPrimary)
 

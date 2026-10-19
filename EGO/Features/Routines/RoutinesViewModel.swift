@@ -17,21 +17,29 @@ final class RoutinesViewModel {
     private let routineRepository: RoutineRepository
     private let routineLogRepository: RoutineLogRepository
     private let routineProgressService: RoutineProgressService
+    private let subjectStatRepository: SubjectStatRepository
+    private let reviewItemRepository: ReviewItemRepository
     private let calendar: Calendar
 
     private(set) var routine: Routine?
     private(set) var todayEntries: [TodayEntry] = []
     private(set) var consistency: RoutineTrends.Consistency?
+    private(set) var suggestion: SuggestionLogic.Suggestion?
+    private(set) var dueReviewCount = 0
 
     init(
         routineRepository: RoutineRepository,
         routineLogRepository: RoutineLogRepository,
         routineProgressService: RoutineProgressService,
+        subjectStatRepository: SubjectStatRepository,
+        reviewItemRepository: ReviewItemRepository,
         calendar: Calendar = .current
     ) {
         self.routineRepository = routineRepository
         self.routineLogRepository = routineLogRepository
         self.routineProgressService = routineProgressService
+        self.subjectStatRepository = subjectStatRepository
+        self.reviewItemRepository = reviewItemRepository
         self.calendar = calendar
     }
 
@@ -45,6 +53,12 @@ final class RoutinesViewModel {
     }
 
     func refresh(now: Date = .now) {
+        // Performance signals (F-07 → suggestions) don't depend on a routine.
+        suggestion = SuggestionLogic.weakestSubject(
+            from: (try? subjectStatRepository.fetchAll()) ?? []
+        )
+        dueReviewCount = (try? reviewItemRepository.dueItems(on: now).count) ?? 0
+
         routine = try? routineRepository.activeRoutine()
         guard let routine else {
             todayEntries = []
@@ -106,6 +120,20 @@ final class RoutinesViewModel {
             targetSessions: sessions,
             order: order
         )
+        refresh()
+    }
+
+    /// In-place edit: identity and log history preserved; today's log
+    /// resyncs to the new target.
+    func updateBlock(_ block: RoutineBlock, weekday: Int, subject: String, minutes: Int, sessions: Int) {
+        try? routineRepository.updateBlock(
+            block,
+            weekday: weekday,
+            subject: subject,
+            targetMinutes: minutes,
+            targetSessions: sessions
+        )
+        try? routineProgressService.syncTodayLog(for: block)
         refresh()
     }
 

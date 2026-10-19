@@ -1,21 +1,21 @@
 import SwiftUI
 
 extension DS {
-    /// Type scale from docs/04 §3. SF Pro through Dynamic Type text styles so
-    /// every size scales with the user's accessibility settings.
-    /// Placeholder until a brand font is locked.
+    /// Brand type scale (Nunito, rounded geometric — the immersive redesign).
+    /// `Font.custom(_:size:relativeTo:)` keeps full Dynamic Type scaling.
+    /// Requires `DS.Fonts.registerIfNeeded()` at launch.
     enum Typography {
         /// 34 / bold
-        static let display = Font.system(.largeTitle, weight: .bold)
+        static let display = Font.custom(Fonts.bold, size: 34, relativeTo: .largeTitle)
         /// 28 / bold
-        static let title = Font.system(.title, weight: .bold)
+        static let title = Font.custom(Fonts.bold, size: 28, relativeTo: .title)
         /// 20 / semibold
-        static let headline = Font.system(.title3, weight: .semibold)
+        static let headline = Font.custom(Fonts.semibold, size: 20, relativeTo: .title3)
         /// 17 / regular
-        static let body = Font.system(.body)
+        static let body = Font.custom(Fonts.regular, size: 17, relativeTo: .body)
         /// 15 / regular
-        static let callout = Font.system(.callout)
-        /// 13 / regular (SF Pro footnote is the 13pt style)
-        static let caption = Font.system(.footnote)
+        static let callout = Font.custom(Fonts.regular, size: 15, relativeTo: .callout)
+        /// 13 / regular
+        static let caption = Font.custom(Fonts.regular, size: 13, relativeTo: .footnote)
     }
 }

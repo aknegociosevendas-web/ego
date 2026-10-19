@@ -5,11 +5,19 @@ struct GoalEditorSheet: View {
     var onSave: (_ subject: String, _ topic: String, _ targetHours: Double, _ deadline: Date?) -> Void
     @Environment(\.dismiss) private var dismiss
 
-    @State private var subject = SubjectCatalog.presets[0]
+    @State private var subject: String
     @State private var topic = ""
     @State private var targetHours = 10
     @State private var hasDeadline = false
     @State private var deadline = Date.now.addingTimeInterval(30 * 86_400)
+
+    init(
+        initialSubject: String? = nil,
+        onSave: @escaping (_ subject: String, _ topic: String, _ targetHours: Double, _ deadline: Date?) -> Void
+    ) {
+        self.onSave = onSave
+        _subject = State(initialValue: initialSubject ?? SubjectCatalog.presets[0])
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: DS.Spacing.md) {

@@ -1,21 +1,52 @@
 import SwiftUI
+import UIKit
 
-/// Navigation root: onboarding gate, then the main tab bar.
+/// Navigation root: onboarding gate, then the main tab bar. Also hosts the
+/// motivational card (notification deep link / milestones, slice 7) and the
+/// focus flow the card's "Focar agora" opens — both above whatever tab is
+/// active.
 struct AppRouter: View {
     let di: DIContainer
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     var body: some View {
-        if hasCompletedOnboarding {
-            MainTabView(di: di)
-        } else {
-            OnboardingView(di: di) { hasCompletedOnboarding = true }
+        Group {
+            if hasCompletedOnboarding {
+                MainTabView(di: di)
+            } else {
+                OnboardingView(di: di) { hasCompletedOnboarding = true }
+            }
+        }
+        // Single root cover: motivational card or the focus flow it opens —
+        // never both at once (see MotivationalCardPresenter.Route).
+        .fullScreenCover(item: Binding(
+            get: { di.cardPresenter.route },
+            set: { if $0 == nil { di.cardPresenter.coverWasDismissed() } }
+        )) { route in
+            switch route {
+            case .card(let card):
+                MotivationalCardView(viewModel: MotivationalCardViewModel(
+                    card: card,
+                    onFocusNow: { di.cardPresenter.requestFocusFlow() },
+                    onDismiss: { di.cardPresenter.dismissCard() }
+                ))
+            case .focusFlow:
+                FocusFlowView(
+                    viewModel: di.pomodoroViewModel,
+                    onMilestones: { di.cardPresenter.enqueueMilestones(from: $0) }
+                )
+            }
         }
     }
 }
 
 private struct MainTabView: View {
     let di: DIContainer
+
+    init(di: DIContainer) {
+        self.di = di
+        Self.configureTranslucentTabBar()
+    }
 
     var body: some View {
         TabView {
@@ -25,33 +56,20 @@ private struct MainTabView: View {
                 .tabItem { Label("tab.study", systemImage: "book.fill") }
             StatsView(di: di)
                 .tabItem { Label("tab.stats", systemImage: "chart.bar.fill") }
-            PlaceholderScreen(titleKey: "tab.profile")
+            ProfileView(di: di)
                 .tabItem { Label("tab.profile", systemImage: "person.fill") }
         }
         .tint(DS.Colors.brandGreen)
     }
-}
 
-/// Temporary Phase 0 screen; each tab is replaced by its feature module later.
-private struct PlaceholderScreen: View {
-    let titleKey: LocalizedStringKey
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: DS.Spacing.lg) {
-            Text(titleKey)
-                .font(DS.Typography.display)
-                .foregroundStyle(DS.Colors.textPrimary)
-            Card {
-                Text("placeholder.comingSoon")
-                    .font(DS.Typography.body)
-                    .foregroundStyle(DS.Colors.textSecondary)
-            }
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, DS.Spacing.screenPadding)
-        .padding(.top, DS.Spacing.xxl)
-        .background(DS.Colors.bgCanvas)
+    /// Blur/translucent tab bar so the Home scene reads through it (redesign).
+    private static func configureTranslucentTabBar() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        appearance.backgroundColor = UIColor(DS.Colors.bgCanvas).withAlphaComponent(0.55)
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
 }
 

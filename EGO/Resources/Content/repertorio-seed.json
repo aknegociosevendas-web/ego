@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "pack": "ego-repertorio-v1",
+  "flashcards": [
+    {
+      "externalId": "ego-rep-meioambiente-001",
+      "theme": "Meio ambiente",
+      "front": "Dado sobre desmatamento na Amazônia",
+      "back": "Segundo o INPE, o monitoramento por satélite (PRODES) mostra que o desmatamento da Amazônia oscila ano a ano, evidenciando a relação entre fiscalização ambiental e devastação — útil para defender políticas públicas de proteção."
+    },
+    {
+      "externalId": "ego-rep-meioambiente-002",
+      "theme": "Meio ambiente",
+      "front": "Conceito: desenvolvimento sustentável (Relatório Brundtland)",
+      "back": "O Relatório Brundtland (1987) define desenvolvimento sustentável como aquele que atende às necessidades do presente sem comprometer as gerações futuras — repertório para conciliar economia e preservação."
+    },
+    {
+      "externalId": "ego-rep-educacao-001",
+      "theme": "Educação",
+      "front": "Lei: educação como direito (CF/1988, art. 205)",
+      "back": "O art. 205 da Constituição Federal define a educação como direito de todos e dever do Estado e da família — base legal para argumentar sobre acesso e permanência escolar."
+    },
+    {
+      "externalId": "ego-rep-educacao-002",
+      "theme": "Educação",
+      "front": "Citação: Paulo Freire sobre transformação",
+      "back": "Paulo Freire afirma que 'a educação não transforma o mundo. A educação muda as pessoas. As pessoas transformam o mundo.' — útil para valorizar o papel emancipador da escola."
+    },
+    {
+      "externalId": "ego-rep-tecnologia-001",
+      "theme": "Tecnologia",
+      "front": "Conceito: sociedade em rede (Manuel Castells)",
+      "back": "O sociólogo Manuel Castells descreve a 'sociedade em rede', em que as relações sociais e econômicas se estruturam em torno de fluxos de informação — repertório para debater conectividade e exclusão digital."
+    },
+    {
+      "externalId": "ego-rep-tecnologia-002",
+      "theme": "Tecnologia",
+      "front": "Lei: proteção de dados (LGPD, 2018)",
+      "back": "A Lei Geral de Proteção de Dados (Lei nº 13.709/2018) regula o tratamento de dados pessoais no Brasil — base para discutir privacidade e responsabilidade das plataformas digitais."
+    },
+    {
+      "externalId": "ego-rep-cidadania-001",
+      "theme": "Cidadania",
+      "front": "Conceito: dignidade da pessoa humana (CF/1988)",
+      "back": "A dignidade da pessoa humana é fundamento da República (art. 1º, III, da Constituição) — repertório versátil para propostas que respeitem os direitos humanos, exigência da competência 5 do ENEM."
+    },
+    {
+      "externalId": "ego-rep-cidadania-002",
+      "theme": "Cidadania",
+      "front": "Fato histórico: Declaração Universal dos Direitos Humanos (1948)",
+      "back": "Adotada pela ONU em 1948 após a Segunda Guerra Mundial, a Declaração Universal dos Direitos Humanos afirma a igualdade e a liberdade de todos — referência para temas de justiça social e inclusão."
+    }
+  ]
+}

@@ -14,6 +14,15 @@ protocol RoutineRepository: AnyObject {
         targetSessions: Int,
         order: Int
     ) throws -> RoutineBlock
+    /// In-place edit preserving the block's identity and its `RoutineLog`
+    /// history (F-05 — never delete+recreate).
+    func updateBlock(
+        _ block: RoutineBlock,
+        weekday: Int,
+        subject: String,
+        targetMinutes: Int,
+        targetSessions: Int
+    ) throws
     func deleteBlock(_ block: RoutineBlock) throws
     func save() throws
 }

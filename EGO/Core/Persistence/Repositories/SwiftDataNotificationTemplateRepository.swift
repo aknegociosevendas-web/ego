@@ -10,10 +10,35 @@ final class SwiftDataNotificationTemplateRepository: NotificationTemplateReposit
     }
 
     func phrases(category: String) throws -> [String] {
+        try templates(category: category).compactMap(\.phrase)
+    }
+
+    func templates(category: String) throws -> [NotificationTemplate] {
         try context.fetch(FetchDescriptor<NotificationTemplate>())
             .filter { $0.category == category }
             .sorted { ($0.key ?? "") < ($1.key ?? "") }
-            .compactMap(\.phrase)
+    }
+
+    func template(key: String) throws -> NotificationTemplate? {
+        try context.fetch(FetchDescriptor<NotificationTemplate>())
+            .first { $0.key == key }
+    }
+
+    func upsert(key: String, phrase: String, category: String, weight: Double) throws {
+        if let existing = try template(key: key) {
+            existing.phrase = phrase
+            existing.category = category
+            existing.weight = weight
+            existing.updatedAt = .now
+        } else {
+            context.insert(NotificationTemplate(
+                key: key, phrase: phrase, category: category, weight: weight
+            ))
+        }
+    }
+
+    func save() throws {
+        try context.save()
     }
 
     func seedIfNeeded() throws {

@@ -17,6 +17,7 @@ final class TopicGoal {
     var deadline: Date?
     var progressMinutes: Int = 0
     var progressQuestions: Int = 0
+    var progressEssays: Int = 0
     var completed: Bool = false
 
     @Relationship(inverse: \FocusSession.goal)

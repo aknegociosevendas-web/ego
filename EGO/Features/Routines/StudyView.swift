@@ -6,20 +6,38 @@ struct StudyView: View {
     @State private var routinesViewModel: RoutinesViewModel
     @State private var goalsViewModel: GoalsViewModel
     @State private var showingBlockEditor = false
+    @State private var editingBlock: RoutineBlock?
     @State private var showingGoalEditor = false
+    @State private var goalPrefillSubject: String?
     @Environment(\.calendar) private var calendar
+    private let di: DIContainer
 
     init(di: DIContainer) {
+        self.di = di
         _routinesViewModel = State(initialValue: di.makeRoutinesViewModel())
         _goalsViewModel = State(initialValue: di.makeGoalsViewModel())
     }
 
     var body: some View {
+        NavigationStack {
+            studyContent
+        }
+    }
+
+    private var studyContent: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: DS.Spacing.lg) {
+                treelineBanner
+
                 Text("study.title")
                     .font(DS.Typography.display)
                     .foregroundStyle(DS.Colors.textPrimary)
+
+                contentLinks
+
+                if let suggestion = routinesViewModel.suggestion {
+                    suggestionCard(suggestion)
+                }
 
                 if routinesViewModel.routine == nil {
                     templatePicker
@@ -50,14 +68,127 @@ struct StudyView: View {
             .presentationDetents([.medium])
             .presentationCornerRadius(DS.Radius.sheet)
         }
-        .sheet(isPresented: $showingGoalEditor) {
-            GoalEditorSheet { subject, topic, hours, deadline in
+        .sheet(item: $editingBlock) { block in
+            RoutineBlockEditorSheet(
+                initial: RoutineBlockEditorSheet.Values(
+                    weekday: block.weekday ?? 2,
+                    subject: block.subject ?? SubjectCatalog.presets[0],
+                    minutes: block.targetMinutes,
+                    sessions: block.targetSessions
+                )
+            ) { weekday, subject, minutes, sessions in
+                routinesViewModel.updateBlock(
+                    block, weekday: weekday, subject: subject, minutes: minutes, sessions: sessions
+                )
+            }
+            .presentationDetents([.medium])
+            .presentationCornerRadius(DS.Radius.sheet)
+        }
+        .sheet(isPresented: $showingGoalEditor, onDismiss: { goalPrefillSubject = nil }) {
+            GoalEditorSheet(initialSubject: goalPrefillSubject) { subject, topic, hours, deadline in
                 goalsViewModel.createGoal(
                     subject: subject, topic: topic, targetHours: hours, deadline: deadline
                 )
             }
             .presentationDetents([.medium])
             .presentationCornerRadius(DS.Radius.sheet)
+        }
+    }
+
+    // MARK: - Content links (F-07 / F-08)
+
+    /// Pixel treeline to break the flat top (redesign). Two muted-green layers
+    /// so it reads as scenery without competing with the content.
+    private var treelineBanner: some View {
+        ZStack(alignment: .bottom) {
+            Treeline(count: 9, jitter: 0.42)
+                .fill(DS.Colors.brandGreenSoft)
+                .frame(height: 56)
+            Treeline(count: 14, jitter: 0.6)
+                .fill(DS.Colors.brandGreenDeep)
+                .frame(height: 44)
+        }
+        .frame(maxWidth: .infinity, alignment: .bottom)
+        .overlay(alignment: .bottom) {
+            Rectangle()
+                .fill(DS.Colors.borderSubtle)
+                .frame(height: 1)
+        }
+        .accessibilityHidden(true)
+    }
+
+    private var contentLinks: some View {
+        HStack(spacing: DS.Spacing.sm) {
+            NavigationLink {
+                QuestionBankView(di: di)
+            } label: {
+                contentLinkCard(
+                    icon: "text.book.closed.fill",
+                    titleKey: "study.questions",
+                    badge: routinesViewModel.dueReviewCount
+                )
+            }
+            .buttonStyle(.plain)
+            NavigationLink {
+                EssayHomeView(di: di)
+            } label: {
+                contentLinkCard(icon: "square.and.pencil", titleKey: "study.essays", badge: 0)
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    private func contentLinkCard(icon: String, titleKey: LocalizedStringKey, badge: Int) -> some View {
+        Card {
+            HStack(spacing: DS.Spacing.xs) {
+                Image(systemName: icon)
+                    .foregroundStyle(DS.Colors.brandGreen)
+                Text(titleKey)
+                    .font(DS.Typography.callout)
+                    .foregroundStyle(DS.Colors.textPrimary)
+                Spacer(minLength: 0)
+                if badge > 0 {
+                    Text(verbatim: "\(badge)")
+                        .font(DS.Typography.caption)
+                        .foregroundStyle(DS.Colors.textOnBrand)
+                        .padding(.horizontal, DS.Spacing.xs)
+                        .padding(.vertical, 2)
+                        .background(DS.Colors.accentFocus)
+                        .clipShape(Capsule())
+                        .monospacedDigit()
+                }
+                Image(systemName: "chevron.right")
+                    .font(DS.Typography.caption)
+                    .foregroundStyle(DS.Colors.textSecondary)
+            }
+        }
+    }
+
+    // MARK: - Suggestion (performance → goal)
+
+    private func suggestionCard(_ suggestion: SuggestionLogic.Suggestion) -> some View {
+        Card {
+            VStack(alignment: .leading, spacing: DS.Spacing.xs) {
+                HStack(spacing: DS.Spacing.xxs) {
+                    Image(systemName: "lightbulb.fill")
+                        .foregroundStyle(DS.Colors.accentStreak)
+                    Text("study.suggestion.title")
+                        .font(DS.Typography.caption)
+                        .foregroundStyle(DS.Colors.textSecondary)
+                }
+                Text("study.suggestion.body \(suggestion.subject) \(Int((suggestion.accuracy * 100).rounded()))")
+                    .font(DS.Typography.callout)
+                    .foregroundStyle(DS.Colors.textPrimary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Button {
+                    goalPrefillSubject = suggestion.subject
+                    showingGoalEditor = true
+                } label: {
+                    Text("study.suggestion.action")
+                        .font(DS.Typography.callout)
+                        .foregroundStyle(DS.Colors.brandGreen)
+                }
+            }
         }
     }
 
@@ -195,14 +326,23 @@ struct StudyView: View {
                                 .foregroundStyle(DS.Colors.textSecondary)
                             ForEach(group.blocks) { block in
                                 HStack {
-                                    Text(verbatim: block.subject ?? "")
-                                        .font(DS.Typography.callout)
-                                        .foregroundStyle(DS.Colors.textPrimary)
-                                    Spacer()
-                                    Text(verbatim: "\(block.targetMinutes) min")
-                                        .font(DS.Typography.caption)
-                                        .foregroundStyle(DS.Colors.textSecondary)
-                                        .monospacedDigit()
+                                    Button {
+                                        editingBlock = block
+                                    } label: {
+                                        HStack {
+                                            Text(verbatim: block.subject ?? "")
+                                                .font(DS.Typography.callout)
+                                                .foregroundStyle(DS.Colors.textPrimary)
+                                            Spacer()
+                                            Text(verbatim: "\(block.targetMinutes) min")
+                                                .font(DS.Typography.caption)
+                                                .foregroundStyle(DS.Colors.textSecondary)
+                                                .monospacedDigit()
+                                        }
+                                        .contentShape(Rectangle())
+                                    }
+                                    .buttonStyle(.plain)
+                                    .accessibilityHint(Text("study.editBlock"))
                                     Button {
                                         routinesViewModel.deleteBlock(block)
                                     } label: {

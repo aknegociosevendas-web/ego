@@ -18,14 +18,33 @@ final class DIContainer {
     let routineRepository: RoutineRepository
     let routineLogRepository: RoutineLogRepository
     let topicGoalRepository: TopicGoalRepository
+    let questionRepository: QuestionRepository
+    let reviewItemRepository: ReviewItemRepository
+    let essayRepository: EssayRepository
+    let flashcardRepository: EssayFlashcardRepository
     let mascotEvents: MascotEventCenter
     let routineProgressService: RoutineProgressService
     let goalProgressService: GoalProgressService
+    let xpService: XPService
+    let questionAttemptService: QuestionAttemptService
+    let flashcardReviewService: FlashcardReviewService
+    let essayService: EssayService
+    let contentSeedService: ContentSeedService
+    let notificationSettingsStore: NotificationSettingsStore
+    let phraseSelector: MotivationalPhraseSelectorProtocol
+    let phraseSeedService: PhraseSeedService
     let notificationService: NotificationService
+    let cardPresenter: MotivationalCardPresenter
+    let notificationDelegate: NotificationDelegateAdapter
     let streakFreezeService: StreakFreezeService
     let sessionCompletionService: SessionCompletionService
     let focusActivityController: FocusActivityManaging
     let appGroupStore: AppGroupStore
+
+    /// Shared timer state: Home's focus flow and the motivational card's
+    /// "Focar agora" flow drive the same instance (one source of truth for
+    /// cycles/Live Activity).
+    lazy var pomodoroViewModel: PomodoroViewModel = makePomodoroViewModel()
 
     init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
@@ -40,20 +59,67 @@ final class DIContainer {
         self.routineRepository = SwiftDataRoutineRepository(container: modelContainer)
         self.routineLogRepository = SwiftDataRoutineLogRepository(container: modelContainer)
         self.topicGoalRepository = SwiftDataTopicGoalRepository(container: modelContainer)
+        self.questionRepository = SwiftDataQuestionRepository(container: modelContainer)
+        self.reviewItemRepository = SwiftDataReviewItemRepository(container: modelContainer)
+        self.essayRepository = SwiftDataEssayRepository(container: modelContainer)
+        self.flashcardRepository = SwiftDataEssayFlashcardRepository(container: modelContainer)
         self.mascotEvents = MascotEventCenter()
         self.routineProgressService = RoutineProgressService(
             routineRepository: routineRepository,
             routineLogRepository: routineLogRepository
         )
         self.goalProgressService = GoalProgressService(goalRepository: topicGoalRepository)
+        self.xpService = XPService(
+            userProfileRepository: userProfileRepository,
+            mascotEvents: mascotEvents
+        )
+        self.questionAttemptService = QuestionAttemptService(
+            modelContainer: modelContainer,
+            reviewItemRepository: reviewItemRepository,
+            userStatsRepository: userStatsRepository,
+            subjectStatRepository: subjectStatRepository,
+            goalProgressService: goalProgressService,
+            xpService: xpService,
+            mascotEvents: mascotEvents
+        )
+        self.flashcardReviewService = FlashcardReviewService(
+            reviewItemRepository: reviewItemRepository
+        )
+        self.essayService = EssayService(
+            essayRepository: essayRepository,
+            userStatsRepository: userStatsRepository,
+            goalProgressService: goalProgressService,
+            xpService: xpService,
+            mascotEvents: mascotEvents
+        )
+        self.contentSeedService = ContentSeedService(
+            questionRepository: questionRepository,
+            essayRepository: essayRepository,
+            flashcardRepository: flashcardRepository
+        )
+        self.notificationSettingsStore = NotificationSettingsStore()
+        let selector = MotivationalPhraseSelector(repository: notificationTemplateRepository)
+        self.phraseSelector = selector
+        self.phraseSeedService = PhraseSeedService(repository: notificationTemplateRepository)
         self.notificationService = NotificationService(
             scheduler: UserNotificationScheduler(),
             reminderRepository: reminderRepository,
             templateRepository: notificationTemplateRepository,
             streakRepository: streakRepository,
             userStatsRepository: userStatsRepository,
-            userProfileRepository: userProfileRepository
+            userProfileRepository: userProfileRepository,
+            focusRepository: focusRepository,
+            phraseSelector: selector,
+            settingsStore: notificationSettingsStore
         )
+        let presenter = MotivationalCardPresenter(
+            templateRepository: notificationTemplateRepository,
+            phraseSelector: selector
+        )
+        self.cardPresenter = presenter
+        self.notificationDelegate = NotificationDelegateAdapter { phraseId, categoryRaw in
+            presenter.presentDeepLink(phraseId: phraseId, categoryRaw: categoryRaw)
+        }
         self.streakFreezeService = StreakFreezeService(
             streakRepository: streakRepository,
             walletRepository: walletRepository
@@ -113,7 +179,9 @@ final class DIContainer {
         RoutinesViewModel(
             routineRepository: routineRepository,
             routineLogRepository: routineLogRepository,
-            routineProgressService: routineProgressService
+            routineProgressService: routineProgressService,
+            subjectStatRepository: subjectStatRepository,
+            reviewItemRepository: reviewItemRepository
         )
     }
 
@@ -121,11 +189,61 @@ final class DIContainer {
         GoalsViewModel(goalRepository: topicGoalRepository)
     }
 
+    func makeQuestionBankViewModel() -> QuestionBankViewModel {
+        QuestionBankViewModel(
+            questionRepository: questionRepository,
+            reviewItemRepository: reviewItemRepository
+        )
+    }
+
+    func makePracticeViewModel(
+        questions: [Question],
+        isReview: Bool,
+        timed: Bool
+    ) -> PracticeViewModel {
+        PracticeViewModel(
+            questions: questions,
+            isReview: isReview,
+            timed: timed,
+            attemptService: questionAttemptService,
+            mascotEvents: mascotEvents
+        )
+    }
+
+    func makeEssayHomeViewModel() -> EssayHomeViewModel {
+        EssayHomeViewModel(essayRepository: essayRepository)
+    }
+
+    func makeEssayEditorViewModel(draft: EssayDraft) -> EssayEditorViewModel {
+        EssayEditorViewModel(
+            draft: draft,
+            essayRepository: essayRepository,
+            essayService: essayService
+        )
+    }
+
+    func makeRepertorioViewModel() -> RepertorioViewModel {
+        RepertorioViewModel(
+            flashcardRepository: flashcardRepository,
+            reviewItemRepository: reviewItemRepository,
+            reviewService: flashcardReviewService
+        )
+    }
+
+    func makeRepertorioStudyViewModel(cards: [EssayFlashcard]) -> RepertorioStudyViewModel {
+        RepertorioStudyViewModel(
+            cards: cards,
+            reviewService: flashcardReviewService,
+            mascotEvents: mascotEvents
+        )
+    }
+
     func makePomodoroViewModel() -> PomodoroViewModel {
         let viewModel = PomodoroViewModel(
             completionService: sessionCompletionService,
             mascotEvents: mascotEvents,
             streakRepository: streakRepository,
+            goalRepository: topicGoalRepository,
             activityController: focusActivityController,
             notificationService: notificationService
         )

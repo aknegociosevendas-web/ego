@@ -1,6 +1,238 @@
 {
   "sourceLanguage": "pt-BR",
   "strings": {
+    "": {},
+    "about.tagline": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foque, evolua e conquiste seus estudos com o EGO."
+          }
+        }
+      }
+    },
+    "about.version %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão %@"
+          }
+        }
+      }
+    },
+    "bank.count %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld questões"
+          }
+        }
+      }
+    },
+    "bank.difficulty.1": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fácil"
+          }
+        }
+      }
+    },
+    "bank.difficulty.2": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média"
+          }
+        }
+      }
+    },
+    "bank.difficulty.3": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Difícil"
+          }
+        }
+      }
+    },
+    "bank.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma questão com esses filtros."
+          }
+        }
+      }
+    },
+    "bank.filter.all": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos"
+          }
+        }
+      }
+    },
+    "bank.filter.difficulty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dificuldade"
+          }
+        }
+      }
+    },
+    "bank.filter.exam": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exame"
+          }
+        }
+      }
+    },
+    "bank.filter.subject": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matéria"
+          }
+        }
+      }
+    },
+    "bank.filter.topic": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tópico"
+          }
+        }
+      }
+    },
+    "bank.filter.year": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano"
+          }
+        }
+      }
+    },
+    "bank.practice": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Praticar"
+          }
+        }
+      }
+    },
+    "bank.review.count %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld questões para revisar"
+          }
+        }
+      }
+    },
+    "bank.review.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada para revisar hoje 🎉"
+          }
+        }
+      }
+    },
+    "bank.review.start": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisar agora"
+          }
+        }
+      }
+    },
+    "bank.review.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisão de hoje"
+          }
+        }
+      }
+    },
+    "bank.timed": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cronômetro"
+          }
+        }
+      }
+    },
+    "bank.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Banco de questões"
+          }
+        }
+      }
+    },
+    "blockEditor.editTitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar bloco"
+          }
+        }
+      }
+    },
     "blockEditor.minutes": {
       "extractionState": "manual",
       "localizations": {
@@ -63,6 +295,226 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dia"
+          }
+        }
+      }
+    },
+    "card.badge.afternoonFocus": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "☀️ Boa tarde"
+          }
+        }
+      }
+    },
+    "card.badge.comeback": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🐸 Bora voltar"
+          }
+        }
+      }
+    },
+    "card.badge.eveningWindDown": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🌙 Fim do dia"
+          }
+        }
+      }
+    },
+    "card.badge.generic": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "💭 Motivação"
+          }
+        }
+      }
+    },
+    "card.badge.milestone": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "✨ Conquista"
+          }
+        }
+      }
+    },
+    "card.badge.morningBoost": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🌱 Bom dia"
+          }
+        }
+      }
+    },
+    "card.badge.sessionReminder": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🎯 Hora do foco"
+          }
+        }
+      }
+    },
+    "card.badge.streakAtRisk": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🔥 Sequência"
+          }
+        }
+      }
+    },
+    "card.focusNow": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focar agora"
+          }
+        }
+      }
+    },
+    "card.later": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depois"
+          }
+        }
+      }
+    },
+    "card.signature": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "— seu sapo 🐸"
+          }
+        }
+      }
+    },
+    "essay.drafts": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rascunhos"
+          }
+        }
+      }
+    },
+    "essay.drafts.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum rascunho ainda — comece uma redação!"
+          }
+        }
+      }
+    },
+    "essay.editor.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrever"
+          }
+        }
+      }
+    },
+    "essay.finalize": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finalizar redação"
+          }
+        }
+      }
+    },
+    "essay.finished": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluída"
+          }
+        }
+      }
+    },
+    "essay.new": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nova redação"
+          }
+        }
+      }
+    },
+    "essay.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redação"
+          }
+        }
+      }
+    },
+    "essay.titlePlaceholder": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Título (tema da redação)"
+          }
+        }
+      }
+    },
+    "essay.words %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld palavras"
           }
         }
       }
@@ -221,6 +673,17 @@
         }
       }
     },
+    "home.mascotPhrase": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bora focar hoje?"
+          }
+        }
+      }
+    },
     "home.startSession": {
       "extractionState": "manual",
       "localizations": {
@@ -320,6 +783,215 @@
         }
       }
     },
+    "nav.menu": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menu"
+          }
+        }
+      }
+    },
+    "nav.profile": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perfil"
+          }
+        }
+      }
+    },
+    "notif.categories.section": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categorias"
+          }
+        }
+      }
+    },
+    "notif.category.afternoonFocus": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tarde"
+          }
+        }
+      }
+    },
+    "notif.category.comeback": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Convite de volta"
+          }
+        }
+      }
+    },
+    "notif.category.eveningWindDown": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noite"
+          }
+        }
+      }
+    },
+    "notif.category.generic": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Motivação geral"
+          }
+        }
+      }
+    },
+    "notif.category.milestone": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conquistas"
+          }
+        }
+      }
+    },
+    "notif.category.morningBoost": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manhã"
+          }
+        }
+      }
+    },
+    "notif.category.sessionReminder": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lembretes de rotina"
+          }
+        }
+      }
+    },
+    "notif.category.streakAtRisk": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sequência em risco"
+          }
+        }
+      }
+    },
+    "notif.permission.banner": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative as notificações nos Ajustes do iOS para receber os lembretes do sapo."
+          }
+        }
+      }
+    },
+    "notif.permission.cta": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Ajustes"
+          }
+        }
+      }
+    },
+    "notif.quiet.from": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De"
+          }
+        }
+      }
+    },
+    "notif.quiet.section": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horário silencioso"
+          }
+        }
+      }
+    },
+    "notif.quiet.to": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Até"
+          }
+        }
+      }
+    },
+    "notif.settings.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificações"
+          }
+        }
+      }
+    },
+    "notif.test.button": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Testar notificação"
+          }
+        }
+      }
+    },
+    "notif.test.sent": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enviada! Chega em 5 segundos."
+          }
+        }
+      }
+    },
     "notification.defaultTitle": {
       "extractionState": "manual",
       "localizations": {
@@ -408,6 +1080,215 @@
         }
       }
     },
+    "paywall.comingSoon": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em breve"
+          }
+        }
+      }
+    },
+    "paywall.cta": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinar"
+          }
+        }
+      }
+    },
+    "paywall.feature.characters": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos os personagens"
+          }
+        }
+      }
+    },
+    "paywall.feature.noads": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem anúncios"
+          }
+        }
+      }
+    },
+    "paywall.feature.stats": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estatísticas avançadas"
+          }
+        }
+      }
+    },
+    "paywall.feature.timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer personalizado"
+          }
+        }
+      }
+    },
+    "paywall.plan.annual": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anual"
+          }
+        }
+      }
+    },
+    "paywall.plan.lifetime": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vitalício"
+          }
+        }
+      }
+    },
+    "paywall.plan.monthly": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mensal"
+          }
+        }
+      }
+    },
+    "paywall.price.annual": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "R$ 49,90/ano"
+          }
+        }
+      }
+    },
+    "paywall.price.lifetime": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "R$ 149,90"
+          }
+        }
+      }
+    },
+    "paywall.price.monthly": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "R$ 9,90/mês"
+          }
+        }
+      }
+    },
+    "paywall.privacy": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidade"
+          }
+        }
+      }
+    },
+    "paywall.recommended": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recomendado"
+          }
+        }
+      }
+    },
+    "paywall.restore": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar"
+          }
+        }
+      }
+    },
+    "paywall.subtitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloqueie tudo e leve seus estudos ao próximo nível."
+          }
+        }
+      }
+    },
+    "paywall.terms": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos"
+          }
+        }
+      }
+    },
+    "paywall.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EGO Pro"
+          }
+        }
+      }
+    },
+    "paywall.trial": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 dias grátis"
+          }
+        }
+      }
+    },
     "placeholder.comingSoon": {
       "extractionState": "manual",
       "localizations": {
@@ -415,6 +1296,765 @@
           "stringUnit": {
             "state": "translated",
             "value": "Em breve — estamos construindo esta parte do EGO."
+          }
+        }
+      }
+    },
+    "practice.correct": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você acertou!"
+          }
+        }
+      }
+    },
+    "practice.explanation": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explicação"
+          }
+        }
+      }
+    },
+    "practice.finish": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir"
+          }
+        }
+      }
+    },
+    "practice.mark": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marcar para revisão"
+          }
+        }
+      }
+    },
+    "practice.marked": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na fila de revisão"
+          }
+        }
+      }
+    },
+    "practice.next": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima"
+          }
+        }
+      }
+    },
+    "practice.progress %lld %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "practice.summary %lld %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você acertou %1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "practice.summary.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sessão concluída!"
+          }
+        }
+      }
+    },
+    "practice.wrong": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi dessa vez"
+          }
+        }
+      }
+    },
+    "profile.coins": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moedas"
+          }
+        }
+      }
+    },
+    "profile.focusTotal": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco total"
+          }
+        }
+      }
+    },
+    "profile.level %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nível %lld"
+          }
+        }
+      }
+    },
+    "profile.proBadge": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EGO Pro"
+          }
+        }
+      }
+    },
+    "profile.streak": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sequência"
+          }
+        }
+      }
+    },
+    "profile.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perfil"
+          }
+        }
+      }
+    },
+    "profile.xp": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "XP"
+          }
+        }
+      }
+    },
+    "repertorio.add": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar à revisão"
+          }
+        }
+      }
+    },
+    "repertorio.bank.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum card disponível"
+          }
+        }
+      }
+    },
+    "repertorio.bank.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cards"
+          }
+        }
+      }
+    },
+    "repertorio.entry.subtitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dados, citações, fatos e leis por tema"
+          }
+        }
+      }
+    },
+    "repertorio.finish": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir"
+          }
+        }
+      }
+    },
+    "repertorio.grade.bom": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom"
+          }
+        }
+      }
+    },
+    "repertorio.grade.dificil": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Difícil"
+          }
+        }
+      }
+    },
+    "repertorio.grade.errei": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Errei"
+          }
+        }
+      }
+    },
+    "repertorio.grade.facil": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fácil"
+          }
+        }
+      }
+    },
+    "repertorio.grade.prompt": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como foi lembrar?"
+          }
+        }
+      }
+    },
+    "repertorio.progress %lld %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "repertorio.queued": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na revisão"
+          }
+        }
+      }
+    },
+    "repertorio.reveal": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar resposta"
+          }
+        }
+      }
+    },
+    "repertorio.review.count %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld cards para revisar"
+          }
+        }
+      }
+    },
+    "repertorio.review.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum card para revisar hoje"
+          }
+        }
+      }
+    },
+    "repertorio.review.start": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisar agora"
+          }
+        }
+      }
+    },
+    "repertorio.review.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisar hoje"
+          }
+        }
+      }
+    },
+    "repertorio.study.start": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estudar"
+          }
+        }
+      }
+    },
+    "repertorio.study.subtitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estude os cards do tema selecionado"
+          }
+        }
+      }
+    },
+    "repertorio.study.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estudar repertório"
+          }
+        }
+      }
+    },
+    "repertorio.summary %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você revisou %lld cards"
+          }
+        }
+      }
+    },
+    "repertorio.summary.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisão concluída!"
+          }
+        }
+      }
+    },
+    "repertorio.theme.all": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos"
+          }
+        }
+      }
+    },
+    "repertorio.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repertório"
+          }
+        }
+      }
+    },
+    "rubric.confirm": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir redação"
+          }
+        }
+      }
+    },
+    "rubric.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autoavaliação — 5 competências"
+          }
+        }
+      }
+    },
+    "rubric.total %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total: %lld/1000"
+          }
+        }
+      }
+    },
+    "scenery.day": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dia"
+          }
+        }
+      }
+    },
+    "scenery.night": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noite"
+          }
+        }
+      }
+    },
+    "scenery.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha o cenário"
+          }
+        }
+      }
+    },
+    "settings.about": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre"
+          }
+        }
+      }
+    },
+    "settings.comingSoon": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este recurso chega em breve."
+          }
+        }
+      }
+    },
+    "settings.notifications": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificações"
+          }
+        }
+      }
+    },
+    "settings.section.more": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mais"
+          }
+        }
+      }
+    },
+    "settings.section.preferences": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferências"
+          }
+        }
+      }
+    },
+    "settings.sounds": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Música e sons"
+          }
+        }
+      }
+    },
+    "settings.subscription": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura"
+          }
+        }
+      }
+    },
+    "settings.system": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
+          }
+        }
+      }
+    },
+    "settings.timer": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer"
+          }
+        }
+      }
+    },
+    "settings.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        }
+      }
+    },
+    "setup.deepFocus": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco profundo"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.alertCancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agora não"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.alertConfirm": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativar"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.alertMessage": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se você sair do app antes do fim da sessão, o sapo para de pescar e sua sequência é penalizada."
+          }
+        }
+      }
+    },
+    "setup.deepFocus.alertTitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foco profundo"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.hint": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sair do app no meio da sessão penaliza a sequência"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.off": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desativado"
+          }
+        }
+      }
+    },
+    "setup.deepFocus.on": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativado"
+          }
+        }
+      }
+    },
+    "setup.question": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No que você vai focar agora?"
+          }
+        }
+      }
+    },
+    "setup.questionPlaceholder": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escreva aqui (opcional)"
+          }
+        }
+      }
+    },
+    "setup.scenery": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cenário"
+          }
+        }
+      }
+    },
+    "setup.time": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo"
           }
         }
       }
@@ -639,6 +2279,17 @@
         }
       }
     },
+    "study.editBlock": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar bloco"
+          }
+        }
+      }
+    },
     "study.empty.subtitle": {
       "extractionState": "manual",
       "localizations": {
@@ -661,6 +2312,17 @@
         }
       }
     },
+    "study.essays": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redação"
+          }
+        }
+      }
+    },
     "study.goals": {
       "extractionState": "manual",
       "localizations": {
@@ -679,6 +2341,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Crie metas por matéria para acompanhar o seu progresso."
+          }
+        }
+      }
+    },
+    "study.questions": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questões"
+          }
+        }
+      }
+    },
+    "study.suggestion.action": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Criar meta"
+          }
+        }
+      }
+    },
+    "study.suggestion.body %@ %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu aproveitamento em %1$@ está em %2$lld%% — que tal reforçar?"
+          }
+        }
+      }
+    },
+    "study.suggestion.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sugestão"
           }
         }
       }
@@ -727,17 +2433,6 @@
         }
       }
     },
-    "summary.coins": {
-      "extractionState": "manual",
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Moedas"
-          }
-        }
-      }
-    },
     "summary.continue": {
       "extractionState": "manual",
       "localizations": {
@@ -749,123 +2444,211 @@
         }
       }
     },
-    "summary.freezeEarned": {
+    "summary.journal.and": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Você ganhou um freeze!"
+            "value": " e "
           }
         }
       }
     },
-    "summary.goalsCompleted %lld": {
+    "summary.journal.coins %lld": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Metas concluídas: %lld 🎯"
+            "value": "%lld moedas"
           }
         }
       }
     },
-    "summary.levelUp %lld": {
+    "summary.journal.connector": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Você subiu para o nível %lld!"
+            "value": " em "
           }
         }
       }
     },
-    "summary.minutes %lld": {
+    "summary.journal.date %@": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld minutos de foco"
+            "value": "%@,"
           }
         }
       }
     },
-    "summary.streak.already": {
+    "summary.journal.earnedPrefix": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hoje já estava garantido — sessão extra!"
+            "value": "Ganhou "
           }
         }
       }
     },
-    "summary.streak.extended %lld": {
+    "summary.journal.endedEarlyPrefix": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld dias de sequência!"
+            "value": "Foco encerrado após "
           }
         }
       }
     },
-    "summary.streak.frozen": {
+    "summary.journal.focusedPrefix": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Um freeze protegeu a sua sequência."
+            "value": "Focou "
           }
         }
       }
     },
-    "summary.streak.reset": {
+    "summary.journal.minutes %lld": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nova sequência começando hoje."
+            "value": "%lld minutos"
           }
         }
       }
     },
-    "summary.streak.started": {
+    "summary.journal.xp %lld": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sequência iniciada — volte amanhã para manter!"
+            "value": "%lld XP"
           }
         }
       }
     },
-    "summary.title": {
+    "summary.phrase.0": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sessão concluída!"
+            "value": "Você tá mais perto do que ontem."
           }
         }
       }
     },
-    "summary.xp": {
+    "summary.phrase.1": {
       "extractionState": "manual",
       "localizations": {
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "XP"
+            "value": "Constância vence talento cansado."
+          }
+        }
+      }
+    },
+    "summary.phrase.2": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um dia bom já é motivo pra mais um."
+          }
+        }
+      }
+    },
+    "summary.phrase.3": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um Pomodoro é uma promessa cumprida."
+          }
+        }
+      }
+    },
+    "summary.phrase.4": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A vitória mora na sequência."
+          }
+        }
+      }
+    },
+    "summary.reward.goal": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meta concluída!"
+          }
+        }
+      }
+    },
+    "summary.reward.levelUp %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nível %lld desbloqueado!"
+          }
+        }
+      }
+    },
+    "summary.reward.milestone %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dias de sequência — freeze ganho!"
+          }
+        }
+      }
+    },
+    "summary.share": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartilhar"
+          }
+        }
+      }
+    },
+    "summary.takeBreak": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fazer a pausa"
           }
         }
       }
@@ -932,6 +2715,83 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ciclo %1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "timer.finish.cancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar focando"
+          }
+        }
+      }
+    },
+    "timer.finish.confirm": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar"
+          }
+        }
+      }
+    },
+    "timer.finish.message": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você não vai ganhar XP nem moedas por essa sessão."
+          }
+        }
+      }
+    },
+    "timer.finish.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar sessão?"
+          }
+        }
+      }
+    },
+    "timer.finishEarly": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir"
+          }
+        }
+      }
+    },
+    "timer.goal.hint": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vincula esta sessão a uma meta"
+          }
+        }
+      }
+    },
+    "timer.goal.none": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem meta"
           }
         }
       }
@@ -1075,6 +2935,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Iniciar"
+          }
+        }
+      }
+    },
+    "timer.subject.lockedHint": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matéria definida pela meta escolhida"
           }
         }
       }

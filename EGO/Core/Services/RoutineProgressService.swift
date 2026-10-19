@@ -39,6 +39,18 @@ final class RoutineProgressService {
         return log
     }
 
+    /// After a block edit: today's log tracks the new target/subject so the
+    /// agenda stays coherent; past logs are append-only snapshots and stay
+    /// untouched (F-06).
+    func syncTodayLog(for block: RoutineBlock, on date: Date = .now) throws {
+        guard let log = try routineLogRepository.log(for: block, on: date) else { return }
+        log.plannedMinutes = block.targetMinutes
+        log.subject = block.subject
+        log.completed = log.plannedMinutes > 0 && log.completedMinutes >= log.plannedMinutes
+        log.updatedAt = date
+        try routineLogRepository.save()
+    }
+
     /// Manual check-off from the agenda: fills the block's planned minutes.
     @discardableResult
     func checkOff(_ block: RoutineBlock, on date: Date = .now) throws -> RoutineLog {

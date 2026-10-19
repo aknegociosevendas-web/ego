@@ -77,21 +77,18 @@ private struct FocusLockScreenView: View {
     }
 }
 
-/// Static frog frame (Live Activity renders are snapshots, so the
-/// expressive `staticPose` is exactly right).
+/// Static frog frame (Live Activity renders are snapshots, so a single crisp
+/// sprite frame is exactly right). Shares the app's `MascotFrog0` asset.
 private struct MascotStamp: View {
     let state: FocusActivityAttributes.ContentState
 
     var body: some View {
         let mascotState: MascotState = state.isPaused ? .idle : .studying
-        Canvas { canvasContext, size in
-            FrogRenderer.draw(
-                pose: MascotAnimator.staticPose(for: mascotState),
-                in: canvasContext,
-                size: size
-            )
-        }
-        .accessibilityLabel(Text(mascotState.accessibilityLabelKey))
+        Image(MascotSprite.restingImageName)
+            .resizable()
+            .interpolation(.none)
+            .aspectRatio(contentMode: .fit)
+            .accessibilityLabel(Text(mascotState.accessibilityLabelKey))
     }
 }
 

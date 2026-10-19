@@ -22,6 +22,10 @@ nonisolated struct GamificationConfig: Sendable, Equatable {
     var freezePriceCoins: Int = 30
     /// XP bonus when a topic goal completes (docs/07 §2).
     var xpPerGoalCompleted: Int = 40
+    /// XP per correct question (docs/07 §2).
+    var xpPerCorrectQuestion: Int = 3
+    /// XP per finished essay (docs/07 §2).
+    var xpPerEssayFinished: Int = 50
     /// Soft-focus honor window: leaving the app longer than this during a
     /// running focus abandons the session (docs/06 §7). Tunable placeholder.
     var softFocusGraceSeconds: TimeInterval = 30

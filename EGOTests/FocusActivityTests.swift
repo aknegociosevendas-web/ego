@@ -43,6 +43,7 @@ struct FocusActivityTests {
             completionService: di.sessionCompletionService,
             mascotEvents: di.mascotEvents,
             streakRepository: di.streakRepository,
+            goalRepository: di.topicGoalRepository,
             activityController: spy,
             notificationService: di.notificationService
         )

@@ -1,0 +1,1205 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "cb-001",
+      "text": "Senti sua falta ontem. Bora hoje?",
+      "category": "comeback",
+      "weight": 1.5
+    },
+    {
+      "id": "cb-002",
+      "text": "Volta aqui, tô te esperando 🐸",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-003",
+      "text": "Um dia parado não apaga o que você construiu.",
+      "category": "comeback",
+      "weight": 1.5
+    },
+    {
+      "id": "cb-004",
+      "text": "Sem cobrança, só saudade. Vamos?",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-005",
+      "text": "A vontade de voltar já é metade do caminho.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-006",
+      "text": "Hoje é um bom dia pra retomar.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-007",
+      "text": "O sapo aqui tá com saudade dos livros com você.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-008",
+      "text": "Nada foi perdido. Só pausado.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-009",
+      "text": "Volta devagar, sem pressa. Tô contigo.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-010",
+      "text": "Um pequeno começo hoje vale mais que um grande plano amanhã.",
+      "category": "comeback",
+      "weight": 1.5
+    },
+    {
+      "id": "cb-011",
+      "text": "Sua vaga tá aqui, quentinha.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-012",
+      "text": "Não precisa recuperar tudo. Só começar de novo.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-013",
+      "text": "Bora respirar fundo e abrir o app?",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-014",
+      "text": "O caminho continua onde você parou.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-015",
+      "text": "Não sou de dar sermão. Só quis te chamar pra estudar.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-016",
+      "text": "Ontem passou. Hoje ainda tem tempo.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-017",
+      "text": "Foca 10 minutinhos, só pra sentir o gosto de novo.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-018",
+      "text": "A rotina não acabou, ela só cochilou.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-019",
+      "text": "Um Pomodoro. Depois a gente vê o resto.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-020",
+      "text": "Tá tudo bem sumir. Melhor ainda voltar.",
+      "category": "comeback",
+      "weight": 1.5
+    },
+    {
+      "id": "cb-021",
+      "text": "Vem, senta aqui do meu lado.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-022",
+      "text": "Sem pressão. Uma sessão curta já ajuda.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-023",
+      "text": "Foco não é linha reta. Bora andar mais um pouco?",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-024",
+      "text": "Um retorno bonito começa hoje.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "cb-025",
+      "text": "Não sumiu, só se distraiu. Bora.",
+      "category": "comeback",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-001",
+      "text": "Ainda dá tempo. Faltam poucas horas.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-002",
+      "text": "Sua sequência quer sobreviver essa noite 🔥",
+      "category": "streakAtRisk",
+      "weight": 1.5
+    },
+    {
+      "id": "sar-003",
+      "text": "Uma sessão curta salva o dia.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-004",
+      "text": "Não deixa amanhã começar do zero.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-005",
+      "text": "Você chegou até aqui. Não para agora.",
+      "category": "streakAtRisk",
+      "weight": 1.5
+    },
+    {
+      "id": "sar-006",
+      "text": "10 minutinhos e a chama continua acesa.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-007",
+      "text": "Um foco rápido garante o streak.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-008",
+      "text": "Falta pouco pra fechar o dia com chave de ouro.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-009",
+      "text": "Tô olhando o relógio por você.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-010",
+      "text": "Só um Pomodoro pra manter o ritmo.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-011",
+      "text": "A sequência ainda tá viva. Depende de você.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-012",
+      "text": "Um foco antes de dormir?",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-013",
+      "text": "Não precisa ser muito. Precisa ser hoje.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-014",
+      "text": "Foca 15 min e depois eu te deixo dormir.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-015",
+      "text": "Amanhã você vai ficar feliz de ter feito isso hoje.",
+      "category": "streakAtRisk",
+      "weight": 1.5
+    },
+    {
+      "id": "sar-016",
+      "text": "Bora antes que o dia termine?",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-017",
+      "text": "Um pequeno esforço agora, um grande orgulho amanhã.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-018",
+      "text": "Ainda não é meia-noite. A gente consegue.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-019",
+      "text": "Sua constância pediu socorro. Atende?",
+      "category": "streakAtRisk",
+      "weight": 1.5
+    },
+    {
+      "id": "sar-020",
+      "text": "Cinco minutinhos já contam. Vamos?",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-021",
+      "text": "Uma sessão só. Sem drama.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-022",
+      "text": "O foco de hoje mora ali, no seu próximo toque.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-023",
+      "text": "Salva a sequência antes do sol nascer amanhã.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-024",
+      "text": "Deixa eu te dar um empurrãozinho.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "sar-025",
+      "text": "Nada de perder o que você começou.",
+      "category": "streakAtRisk",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-001",
+      "text": "Bom dia! O dia é seu 🌱",
+      "category": "morningBoost",
+      "weight": 1.5
+    },
+    {
+      "id": "mb-002",
+      "text": "Que tal começar cedo hoje?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-003",
+      "text": "Manhã calma faz tarde produtiva.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-004",
+      "text": "Um café e um Pomodoro logo cedo, bora?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-005",
+      "text": "Primeiro foco do dia, o mais importante.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-006",
+      "text": "Acorda com propósito. Bora estudar?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-007",
+      "text": "O dia rende mais quando começa cedo.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-008",
+      "text": "Antes das mensagens, o foco.",
+      "category": "morningBoost",
+      "weight": 1.5
+    },
+    {
+      "id": "mb-009",
+      "text": "Manhã é o momento que ninguém interrompe.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-010",
+      "text": "Bom dia, estudante. Que tal 25 minutinhos?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-011",
+      "text": "O primeiro Pomodoro do dia costuma ser o melhor.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-012",
+      "text": "Começa devagar. Um passo, depois outro.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-013",
+      "text": "Ainda tá quietinho lá fora. Aproveita.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-014",
+      "text": "Um foco antes do café da manhã?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-015",
+      "text": "Manhãs consistentes constroem grandes histórias.",
+      "category": "morningBoost",
+      "weight": 1.5
+    },
+    {
+      "id": "mb-016",
+      "text": "Bora ligar a mente antes do celular?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-017",
+      "text": "Hoje pode ser um bom dia. Depende do começo.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-018",
+      "text": "O sapo já acordou. E você?",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-019",
+      "text": "Café quente, mente clara, foco pronto.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-020",
+      "text": "Começar cedo é meio caminho andado.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-021",
+      "text": "Um pequeno ritual pra abrir o dia: estudar.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-022",
+      "text": "Sem pressa. Só constância.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-023",
+      "text": "O silêncio da manhã é seu melhor amigo.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-024",
+      "text": "Aproveita antes do mundo acordar.",
+      "category": "morningBoost",
+      "weight": 1.0
+    },
+    {
+      "id": "mb-025",
+      "text": "Manhã é onde os grandes dias nascem.",
+      "category": "morningBoost",
+      "weight": 1.5
+    },
+    {
+      "id": "af-001",
+      "text": "Tarde produtiva começa com um Pomodoro.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-002",
+      "text": "A concentração da tarde vale ouro.",
+      "category": "afternoonFocus",
+      "weight": 1.5
+    },
+    {
+      "id": "af-003",
+      "text": "Bora quebrar a modorra com um foco?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-004",
+      "text": "Um estudo antes do fim do expediente da mente?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-005",
+      "text": "Meio da tarde é hora nobre. Aproveita.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-006",
+      "text": "Vinte e cinco minutinhos e voltamos ao mundo.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-007",
+      "text": "Foco na tarde, orgulho de noite.",
+      "category": "afternoonFocus",
+      "weight": 1.5
+    },
+    {
+      "id": "af-008",
+      "text": "Que tal fechar o dia estudando forte?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-009",
+      "text": "A tarde ainda tem sol pra você aprender.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-010",
+      "text": "Bora antes da preguiça bater?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-011",
+      "text": "Um Pomodoro entre um cochilo e outro.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-012",
+      "text": "A mente pede foco. Concede?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-013",
+      "text": "Nada como estudar antes do jantar.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-014",
+      "text": "Um foco rápido antes do fim do dia.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-015",
+      "text": "Tarde bem aproveitada, noite tranquila.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-016",
+      "text": "Meia hora agora, uma vida amanhã.",
+      "category": "afternoonFocus",
+      "weight": 1.5
+    },
+    {
+      "id": "af-017",
+      "text": "Bora fazer render essa tarde?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-018",
+      "text": "O sol tá pedindo pra você estudar.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-019",
+      "text": "Um Pomodoro antes do café da tarde?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-020",
+      "text": "A tarde é sua. Usa bem.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-021",
+      "text": "Foco na tarde é foco premium.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-022",
+      "text": "Não deixa a tarde escapar sem foco.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-023",
+      "text": "Que tal aquele estudo que você adiou?",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-024",
+      "text": "Um empurrãozinho pra você atacar hoje.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "af-025",
+      "text": "Tarde de foco, noite leve.",
+      "category": "afternoonFocus",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-001",
+      "text": "Boa noite, estudante. Um último foco?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-002",
+      "text": "Dia produtivo merece revisão calma.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-003",
+      "text": "Antes de dormir, um Pomodoro leve?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-004",
+      "text": "A noite é ótima pra revisar.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-005",
+      "text": "Fim do dia. Como foi? Bora fechar bem?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-006",
+      "text": "Um estudo antes da série?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-007",
+      "text": "A noite pede leitura. Que tal?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-008",
+      "text": "Fechar o dia com foco é ganhar duas vezes.",
+      "category": "eveningWindDown",
+      "weight": 1.5
+    },
+    {
+      "id": "ewd-009",
+      "text": "Amanhã começa hoje à noite.",
+      "category": "eveningWindDown",
+      "weight": 1.5
+    },
+    {
+      "id": "ewd-010",
+      "text": "Última sessão do dia, a mais importante.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-011",
+      "text": "Boa noite. Foco tranquilo antes de dormir?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-012",
+      "text": "O silêncio da noite é ótimo pra concentrar.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-013",
+      "text": "Uma revisão rápida pra dormir com a lição na cabeça.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-014",
+      "text": "Boa noite. Você fez o suficiente hoje?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-015",
+      "text": "Um Pomodoro pra desacelerar.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-016",
+      "text": "A mente descansa melhor depois de trabalhar.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-017",
+      "text": "Antes de deitar, uma passagem pelos livros?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-018",
+      "text": "Noite tranquila começa com foco resolvido.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-019",
+      "text": "Um estudo pra fechar o dia com paz.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-020",
+      "text": "Boa noite. O sapo tá cansado, mas orgulhoso.",
+      "category": "eveningWindDown",
+      "weight": 1.5
+    },
+    {
+      "id": "ewd-021",
+      "text": "Que tal revisar 15 min antes de dormir?",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-022",
+      "text": "A noite guarda tudo que você estudou.",
+      "category": "eveningWindDown",
+      "weight": 1.5
+    },
+    {
+      "id": "ewd-023",
+      "text": "Fim do dia é hora nobre pra memória.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-024",
+      "text": "Um foco leve, uma noite bem dormida.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ewd-025",
+      "text": "Dorme bem. Amanhã a gente volta.",
+      "category": "eveningWindDown",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-001",
+      "text": "Você é foda 🔥",
+      "category": "milestone",
+      "weight": 1.5
+    },
+    {
+      "id": "ms-002",
+      "text": "Isso aqui merece pausa e orgulho.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-003",
+      "text": "Que sequência linda!",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-004",
+      "text": "O sapo pulou de alegria.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-005",
+      "text": "Level up! Anda mais um passo.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-006",
+      "text": "Meta batida. Tá voando.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-007",
+      "text": "Você tá construindo algo grande.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-008",
+      "text": "Não é sorte. É constância.",
+      "category": "milestone",
+      "weight": 1.5
+    },
+    {
+      "id": "ms-009",
+      "text": "Que dia. Que semana. Que sequência.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-010",
+      "text": "Isso aqui é história pra contar depois.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-011",
+      "text": "Merecido demais.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-012",
+      "text": "O melhor tá começando.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-013",
+      "text": "Você acabou de subir de nível.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-014",
+      "text": "Nada pra dizer. Só orgulho.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-015",
+      "text": "Marca essa data. Você venceu hoje.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-016",
+      "text": "Sua constância virou identidade.",
+      "category": "milestone",
+      "weight": 1.5
+    },
+    {
+      "id": "ms-017",
+      "text": "Isso é o que separa quem passa de quem tenta.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-018",
+      "text": "Vem cá receber um abraço de sapo.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-019",
+      "text": "Sequência de gente séria.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-020",
+      "text": "Você acabou de bater sua melhor marca.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-021",
+      "text": "Sabe que isso é raro, né? Poucos chegam aqui.",
+      "category": "milestone",
+      "weight": 1.5
+    },
+    {
+      "id": "ms-022",
+      "text": "Bora comemorar com mais um Pomodoro amanhã.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-023",
+      "text": "Um marco importante ficou pra trás.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-024",
+      "text": "Você tá indo além do combinado.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "ms-025",
+      "text": "Isso aqui é rotina de vestibulando forte.",
+      "category": "milestone",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-001",
+      "text": "Sua hora chegou. Bora?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-002",
+      "text": "Combinamos agora, lembra?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-003",
+      "text": "Tá na hora do foco 🎯",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-004",
+      "text": "Vinte e cinco minutinhos, tá reservado.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-005",
+      "text": "Sua rotina tá te chamando.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-006",
+      "text": "Hora combinada, foco garantido.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-007",
+      "text": "Bora honrar o compromisso com você?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-008",
+      "text": "Sua rotina é sua palavra.",
+      "category": "sessionReminder",
+      "weight": 1.5
+    },
+    {
+      "id": "sr-009",
+      "text": "Chegou a hora do foco de hoje.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-010",
+      "text": "Tá na agenda. Bora cumprir?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-011",
+      "text": "Você marcou esse horário. Não fura.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-012",
+      "text": "É agora. Sem enrolação.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-013",
+      "text": "O foco combinado te espera.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-014",
+      "text": "Hora nobre, foco nobre.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-015",
+      "text": "Combinei com você. Cumpre?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-016",
+      "text": "Vem, começa. Depois eu te libero.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-017",
+      "text": "Rotina é acordo com o futuro.",
+      "category": "sessionReminder",
+      "weight": 1.5
+    },
+    {
+      "id": "sr-018",
+      "text": "Sua meta tá esperando esse Pomodoro.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-019",
+      "text": "Bora fazer o que combinamos ontem?",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-020",
+      "text": "Momento marcado. Momento cumprido.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-021",
+      "text": "Chegou a hora. Sem rodeios.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-022",
+      "text": "Foco no horário certo rende dobrado.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-023",
+      "text": "Você agendou. Agora só executar.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "sr-024",
+      "text": "Sua palavra vale mais que sua vontade.",
+      "category": "sessionReminder",
+      "weight": 1.5
+    },
+    {
+      "id": "sr-025",
+      "text": "Combinou. Tá na hora.",
+      "category": "sessionReminder",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-001",
+      "text": "Um foco por dia, uma vitória por dia.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-002",
+      "text": "Constância vence talento cansado.",
+      "category": "generic",
+      "weight": 1.5
+    },
+    {
+      "id": "gm-003",
+      "text": "Você é o que faz todos os dias.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-004",
+      "text": "Estudo é conversa longa com o futuro.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-005",
+      "text": "Cada Pomodoro te aproxima da vaga.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-006",
+      "text": "Não precisa ser rápido. Precisa ser constante.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-007",
+      "text": "O foco de hoje decide o resultado de amanhã.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-008",
+      "text": "Ninguém vê o processo. Todo mundo vê o resultado.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-009",
+      "text": "Não conta pra ninguém. Só faz.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-010",
+      "text": "Rotina chata é rotina que funciona.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-011",
+      "text": "Você não tá atrasado. Tá no seu ritmo.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-012",
+      "text": "Estuda com calma. O tempo é seu.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-013",
+      "text": "Um dia bom já é motivo pra mais um.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-014",
+      "text": "Foco não é o que você sente. É o que você faz.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-015",
+      "text": "A vaga vai pra quem estudou hoje.",
+      "category": "generic",
+      "weight": 1.5
+    },
+    {
+      "id": "gm-016",
+      "text": "Nada substitui as horas com a matéria.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-017",
+      "text": "Vestibular se ganha em janeiro. Se prepara em julho.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-018",
+      "text": "Cada minuto conta. Até esse.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-019",
+      "text": "Você tá mais perto do que ontem.",
+      "category": "generic",
+      "weight": 1.5
+    },
+    {
+      "id": "gm-020",
+      "text": "Estudar é o hábito mais gentil que você pode ter.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-021",
+      "text": "Um Pomodoro é uma promessa cumprida.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-022",
+      "text": "A vitória mora na sequência.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-023",
+      "text": "Sem drama. Só ação.",
+      "category": "generic",
+      "weight": 1.0
+    },
+    {
+      "id": "gm-024",
+      "text": "O sapo acredita em você. Faltou você acreditar.",
+      "category": "generic",
+      "weight": 1.5
+    },
+    {
+      "id": "gm-025",
+      "text": "Você tem hoje. Usa bem.",
+      "category": "generic",
+      "weight": 1.0
+    }
+  ]
+}
